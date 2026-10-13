@@ -1,0 +1,377 @@
+/* ===== ペッターのページ: 夕方から夜の、あたたかい灯りの部屋 ===== */
+
+.petter-page {
+  --kabe: #e9e1cf;
+  --kabe-shita: #d8cbb3;
+  --yuka: #b88a5a;
+  --yuka-kage: #a77b4e;
+  --habaki: #7e5a39;
+  --midori: #7d9a78;
+  --midori-koi: #3f5f3f;
+  --midori-fuchi: #314c33;
+  --tomoshibi: #f0d49a;
+  --kami: #f7f0df;
+  --ai: #1a2135;
+  --floor-h: 190px;
+
+  min-height: 100vh;
+  color: var(--ai);
+  background: var(--kabe);
+  line-height: 1.8;
+}
+
+/* 路地の背景を、部屋の壁（生成りの壁紙）に置き換える */
+.petter-page::before {
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0, rgba(240, 212, 154, .3), transparent 70%),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(120, 96, 64, .045) 46px 47px),
+    linear-gradient(var(--kabe), #e2d8c3);
+  background-size: auto;
+  background-repeat: no-repeat, repeat, no-repeat;
+  box-shadow: none;
+}
+
+.petter-page a:focus-visible { outline: 3px solid var(--ai); outline-offset: 4px; }
+.petter-main { overflow: hidden; }
+
+/* ----- 最初の画面 ----- */
+
+.petter-hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse 50% 60% at 30% 55%, rgba(240, 212, 154, .3), transparent 70%),
+    linear-gradient(var(--kabe), var(--kabe-shita));
+}
+
+/* 床: 下から --floor-h の高さの板張り */
+.petter-hero::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--floor-h);
+  content: "";
+  background:
+    linear-gradient(rgba(70, 42, 20, .22), transparent 30%),
+    repeating-linear-gradient(90deg, transparent 0 167px, rgba(86, 54, 28, .22) 167px 169px),
+    repeating-linear-gradient(180deg, var(--yuka) 0 34px, var(--yuka-kage) 34px 36px),
+    var(--yuka);
+  pointer-events: none;
+}
+
+/* 幅木: 壁と床の境目（床の線） */
+.petter-hero::before {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: var(--floor-h);
+  left: 0;
+  height: 14px;
+  content: "";
+  background: linear-gradient(#f3ecdd 0 3px, #9b7450 3px 5px, var(--habaki) 5px);
+  box-shadow: 0 4px 6px rgba(70, 42, 20, .18);
+  pointer-events: none;
+}
+
+.petter-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(calc(100% - 32px), 1080px);
+  margin-inline: auto;
+  padding-top: 40px;
+}
+
+.petter-hero__copy { position: relative; z-index: 2; }
+.petter-hero h1 { margin: 0; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.12; letter-spacing: .08em; }
+
+/* 一言は言葉の切れ目（<wbr>）でだけ折り返す */
+.petter-lead { max-width: 24em; margin: 18px 0 0; font-size: clamp(1.05rem, 2.2vw, 1.25rem); font-weight: 700; word-break: keep-all; overflow-wrap: normal; }
+
+.petter-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; }
+.petter-tags span { padding: 4px 12px; border: 1px solid #4b5f48; border-radius: 999px; color: #263b28; background: rgba(255, 255, 255, .5); font-size: .875rem; font-weight: 700; }
+
+/* 一番目立つボタン（くすんだ緑の地に白い字） */
+.petter-cta {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 12px 26px;
+  border: 2px solid var(--midori-fuchi);
+  border-radius: 6px;
+  color: #fff;
+  background: var(--midori-koi);
+  box-shadow: 0 8px 18px rgba(47, 63, 38, .25);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.petter-cta:hover { color: #fff; background: var(--midori-fuchi); }
+
+/* 部屋の絵。下の端が最初の画面の下の端にそろい、床の線は下から --floor-h の所 */
+.room { position: relative; min-width: 0; height: 620px; }
+
+.room__window {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 32%;
+  height: 200px;
+  overflow: hidden;
+  border: 10px solid #f2eadb;
+  background:
+    radial-gradient(circle at 62% 92%, #ffe2a4 0 7%, rgba(255, 210, 140, .55) 12%, transparent 30%),
+    linear-gradient(transparent 76%, rgba(92, 70, 88, .55) 76% 82%, rgba(76, 58, 74, .7) 82%),
+    linear-gradient(#7d6b8e 0, #b88497 34%, #e19b7c 62%, #f3c48a 100%);
+  box-shadow: 0 7px 15px rgba(59, 42, 27, .19), inset 0 0 0 3px #8c765e;
+}
+
+/* 窓の桟 */
+.room__window::before { position: absolute; top: 0; bottom: 0; left: 50%; width: 5px; content: ""; background: #f2eadb; transform: translateX(-50%); }
+.room__window::after { position: absolute; top: 48%; right: 0; left: 0; height: 5px; content: ""; background: #f2eadb; }
+
+.room__curtain {
+  position: absolute;
+  z-index: 1;
+  top: -4px;
+  bottom: -4px;
+  width: 34%;
+  background: repeating-linear-gradient(90deg, #8ea488 0 14px, #7b9477 14px 26px);
+  box-shadow: 0 4px 8px rgba(37, 49, 36, .22);
+  transform-origin: top center;
+  animation: petter-curtain 8s ease-in-out infinite alternate;
+}
+
+.room__curtain--left { left: -10%; border-radius: 0 0 60% 0; }
+.room__curtain--right { right: -10%; border-radius: 0 0 0 60%; animation-delay: -4s; }
+
+.room__frame {
+  position: absolute;
+  top: 64px;
+  left: 35%;
+  width: 20%;
+  padding: 7px;
+  border: 4px solid #563d28;
+  background: #8c6845;
+  box-shadow: 0 12px 24px rgba(61, 42, 25, .25), inset 0 0 0 2px #c79c69;
+  transform: rotate(.8deg);
+}
+
+.room__frame img { border: 4px solid #f4eddf; aspect-ratio: 1; object-fit: cover; }
+
+/* 窓の下の棚。棚の脚の先（絵の下の端）は床の線より 30px 手前に乗る */
+.room__cabinet {
+  position: absolute;
+  z-index: 1;
+  bottom: calc(var(--floor-h) - 30px);
+  left: 1%;
+  width: 36%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 8px 6px rgba(70, 48, 26, .2));
+}
+
+.room__glow { animation: petter-lamp 6s ease-in-out infinite alternate; }
+
+.room__rug {
+  position: absolute;
+  bottom: 52px;
+  left: 30%;
+  width: 70%;
+  height: 104px;
+  border: 5px solid rgba(240, 226, 196, .7);
+  border-radius: 50%;
+  background: repeating-radial-gradient(ellipse, #9bab91 0 14px, #8a9b80 14px 26px);
+  box-shadow: 0 8px 12px rgba(58, 44, 29, .16);
+}
+
+/* ペットのベッド（丸いクッション）。棚の手前の床に置く */
+.room__bed {
+  position: absolute;
+  z-index: 2;
+  bottom: 26px;
+  left: 4%;
+  width: 156px;
+  height: 60px;
+  border: 8px solid #718b6e;
+  border-radius: 50%;
+  background: #9eb29a;
+  box-shadow: 0 9px 12px rgba(63, 49, 34, .23), inset 0 9px 0 rgba(255, 255, 255, .18);
+}
+
+.room__bed i { position: absolute; inset: 7px 20px; border-radius: 50%; background: #c0c9ad; box-shadow: inset 0 -6px rgba(93, 110, 84, .18); }
+
+/* 写真の人。いちばん大きいアバターの靴の底が、床の線より 64px 手前に来る */
+.room__people {
+  position: absolute;
+  z-index: 3;
+  right: 2%;
+  bottom: calc(var(--floor-h) - 64px);
+  width: auto;
+  height: 470px;
+  aspect-ratio: 1152 / 1400;
+}
+
+.room__people img { position: relative; z-index: 1; width: 100%; height: 100%; }
+
+/* 足元のやわらかい影（大きいアバターと、少し奥に立つペット） */
+.room__people::before,
+.room__people::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(66, 42, 20, .42), rgba(66, 42, 20, .16) 60%, transparent);
+}
+
+.room__people::before { bottom: -14px; left: 26%; width: 44%; height: 30px; }
+.room__people::after { bottom: 10%; left: 8%; width: 34%; height: 24px; }
+
+/* ----- 中身 ----- */
+
+.petter-content { width: min(calc(100% - 32px), 1080px); margin-inline: auto; }
+
+/* 紹介: 文の横に、膝に抱いて座る写真（丸い敷物の上に座る） */
+.petter-intro { display: grid; align-items: center; gap: 32px; padding: 72px 0 16px; font-size: clamp(1rem, 2vw, 1.15rem); }
+.petter-intro p { max-width: none; margin: 0; }
+.petter-intro p + p { margin-top: 14px; }
+.petter-intro__text p:first-child { font-size: 1.15em; font-weight: 700; }
+
+.petter-intro__photo { position: relative; width: min(100%, 380px); margin-inline: auto; padding-bottom: 6px; }
+.petter-intro__photo img { position: relative; z-index: 1; }
+
+.petter-intro__photo::before {
+  position: absolute;
+  bottom: 0;
+  left: 4%;
+  width: 92%;
+  height: 34%;
+  border: 4px solid rgba(255, 249, 236, .75);
+  border-radius: 50%;
+  content: "";
+  background: repeating-radial-gradient(ellipse, #d9c4a0 0 12px, #ccb48c 12px 22px);
+  box-shadow: 0 10px 18px rgba(73, 55, 34, .18);
+}
+
+.petter-section { padding-top: 80px; }
+.petter-section h2 { position: relative; margin-bottom: 34px; color: var(--ai); font-size: clamp(1.7rem, 4vw, 2.3rem); }
+.petter-section h2::after { display: block; width: 58px; height: 4px; margin-top: 9px; border-radius: 2px; content: ""; background: var(--midori); }
+
+/* 機能のカード: 壁に留めたメモ（紙の地・角を少し丸く・やわらかい影・上にマスキングテープ） */
+.petter-features { display: grid; gap: 22px; }
+
+.petter-feature {
+  position: relative;
+  min-width: 0;
+  padding: 28px 22px 24px;
+  border: 1px solid #cdbfa5;
+  border-radius: 10px 14px 9px 12px;
+  background: var(--kami);
+  box-shadow: 0 8px 18px rgba(73, 55, 34, .12);
+}
+
+.petter-feature::before { position: absolute; top: -8px; left: 50%; width: 46px; height: 16px; content: ""; background: rgba(125, 154, 120, .55); transform: translateX(-50%) rotate(-2deg); }
+.petter-feature h3 { color: var(--ai); font-size: 1.1rem; line-height: 1.5; }
+.petter-feature p { margin: 10px 0 0; font-size: 1rem; }
+
+/* 「自分の足で歩く」: 廊下の壁と床の絵の上を、写真の 2 人が歩く */
+.petter-feature--walk { display: flex; flex-direction: column; padding-top: 18px; }
+.petter-feature--walk h3 { font-size: 1.3rem; }
+
+.walk-scene {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: flex-end;
+  margin: 0 -8px 20px;
+  padding: 26px 18px 12px;
+  border-radius: 6px;
+  background:
+    linear-gradient(transparent calc(100% - 64px), #f3ecdd calc(100% - 64px) calc(100% - 61px), var(--habaki) calc(100% - 61px) calc(100% - 52px), transparent calc(100% - 52px)),
+    linear-gradient(transparent calc(100% - 52px), var(--yuka) calc(100% - 52px)),
+    radial-gradient(ellipse 60% 70% at 50% 30%, rgba(240, 212, 154, .35), transparent 70%),
+    linear-gradient(#ece4d2, #ddd0b8);
+  box-shadow: inset 0 0 0 1px rgba(120, 90, 60, .12);
+}
+
+.walk-scene__people { position: relative; width: 100%; }
+.walk-scene__people img { position: relative; z-index: 1; }
+
+.walk-scene__people::before,
+.walk-scene__people::after {
+  position: absolute;
+  bottom: 2%;
+  content: "";
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(66, 42, 20, .4), rgba(66, 42, 20, .14) 60%, transparent);
+}
+
+.walk-scene__people::before { left: 5%; width: 20%; height: 22px; }
+.walk-scene__people::after { left: 74%; width: 24%; height: 24px; }
+
+.petter-howto ol { display: grid; margin: 0; padding: 0; list-style: none; counter-reset: steps; gap: 18px; }
+.petter-howto li { position: relative; min-width: 0; margin: 0; padding: 72px 22px 26px; border-top: 4px solid var(--midori); border-radius: 6px; background: rgba(249, 244, 231, .78); box-shadow: 0 7px 16px rgba(73, 55, 34, .1); counter-increment: steps; }
+.petter-howto li::before { position: absolute; top: 8px; left: 20px; color: #4a654b; content: counter(steps); font-family: "Dela Gothic One", sans-serif; font-size: 2.3rem; line-height: 1.2; }
+
+.petter-notes { display: grid; gap: 0 30px; }
+.petter-list { min-width: 0; }
+.petter-list ul { margin: 0; padding: 26px 26px 26px 46px; border-radius: 8px; background: rgba(249, 244, 231, .78); box-shadow: 0 7px 16px rgba(73, 55, 34, .1); }
+.petter-list li::marker { color: #4a654b; }
+.petter-list li + li { margin-top: 12px; }
+
+.petter-back { display: inline-flex; min-height: 48px; align-items: center; margin-top: 74px; padding: 10px 20px; border: 2px solid #304a34; border-radius: 5px; color: #263b28; font-weight: 700; text-decoration: none; }
+.petter-back:hover { color: #fff; background: #304a34; }
+.petter-page footer { padding-top: 78px; color: var(--ai); }
+
+@keyframes petter-lamp { from { opacity: .7; } to { opacity: 1; } }
+@keyframes petter-curtain { from { transform: skewX(0); } to { transform: skewX(1.6deg) translateX(2px); } }
+
+@media (min-width: 768px) {
+  .petter-intro { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 44px; }
+  .petter-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .petter-feature--walk,
+  .petter-feature--wide { grid-column: span 2; }
+  .petter-howto ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 900px) {
+  .petter-hero__inner { grid-template-columns: minmax(300px, .75fr) minmax(0, 1.45fr); gap: 32px; }
+  .petter-hero__copy { align-self: center; padding-bottom: var(--floor-h); }
+  .room { align-self: end; }
+  .petter-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+}
+
+/* パソコン: 4 列 × 2 段。歩く写真のカードは 2 列 × 2 段、最後のカードは 2 列 */
+@media (min-width: 1024px) {
+  .petter-features { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .petter-feature--walk { grid-row: span 2; }
+}
+
+@media (max-width: 899px) {
+  .petter-hero__inner { gap: 28px; }
+  .room { height: 560px; }
+  .room__people { height: 430px; }
+}
+
+/* スマホ: 文の下に部屋。人の高さは画面の 1/3 ほど（300px） */
+@media (max-width: 560px) {
+  .petter-page { --floor-h: 126px; }
+  .petter-hero__inner { gap: 22px; padding-top: 34px; }
+  .petter-cta { margin-top: 22px; }
+  .room { height: 410px; }
+  .room__window { top: 10px; width: 46%; height: 140px; border-width: 7px; }
+  .room__frame { display: none; }
+  .room__cabinet { bottom: calc(var(--floor-h) - 22px); left: 0; width: 46%; }
+  .room__rug { bottom: 28px; left: 18%; width: 82%; height: 72px; }
+  .room__bed { bottom: 12px; left: 0; width: 112px; height: 44px; border-width: 6px; }
+  .room__bed i { inset: 5px 14px; }
+  .room__people { right: -2%; bottom: calc(var(--floor-h) - 46px); height: 300px; }
+  .petter-section { padding-top: 64px; }
+  .petter-intro { padding-top: 56px; }
+  .walk-scene { margin-inline: -10px; padding: 18px 10px 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room__curtain,
+  .room__glow { animation: none; }
+}

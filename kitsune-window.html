@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>狐の窓（近日公開）｜ドコカノロジウラ</title>
+  <meta name="description" content="指の窓越しにだけ、もうひとつの姿が見えるアバターギミック">
+  <meta property="og:title" content="狐の窓（近日公開）｜ドコカノロジウラ">
+  <meta property="og:description" content="指の窓越しにだけ、もうひとつの姿が見えるアバターギミック">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ys-0311san.github.io/kitsune-window.html">
+  <meta property="og:image" content="https://ys-0311san.github.io/images/ogp.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@roziura_shop">
+  <meta name="theme-color" content="#070a12">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Dela+Gothic+One&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="kitsune-window.css">
+</head>
+<body class="kitsune-page">
+  <!-- 絵の部品（鳥居・石灯籠・紙垂）。下の絵から <use> で呼び出す -->
+  <svg class="fox-symbols" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="kw-shu" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f2a1f"/><stop offset=".35" stop-color="#c2432f"/><stop offset="1" stop-color="#9b2f22"/></linearGradient>
+      <linearGradient id="kw-kasagi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4048"/><stop offset=".25" stop-color="#231d24"/><stop offset="1" stop-color="#141117"/></linearGradient>
+      <linearGradient id="kw-stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5d6274"/><stop offset=".45" stop-color="#8b8f9c"/><stop offset="1" stop-color="#4c5062"/></linearGradient>
+      <radialGradient id="kw-fire" cx=".5" cy=".55" r=".6"><stop offset="0" stop-color="#fff4cf"/><stop offset=".55" stop-color="#f0c877"/><stop offset="1" stop-color="#c47a35"/></radialGradient>
+      <radialGradient id="kw-halo"><stop offset="0" stop-color="#f0d49a" stop-opacity=".55"/><stop offset=".5" stop-color="#f0d49a" stop-opacity=".16"/><stop offset="1" stop-color="#f0d49a" stop-opacity="0"/></radialGradient>
+      <radialGradient id="kw-bubble" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#a8e0ff" stop-opacity=".04"/><stop offset=".72" stop-color="#a8e0ff" stop-opacity=".08"/><stop offset=".93" stop-color="#d6f2ff" stop-opacity=".34"/><stop offset="1" stop-color="#e8f8ff" stop-opacity=".75"/></radialGradient>
+
+      <!-- 明神鳥居: 笠木（両端が上へ反る・上は黒）・島木・額束・貫（柱を突き抜ける）・内へ傾く柱・亀腹 -->
+      <symbol id="kw-torii" viewBox="0 0 520 520">
+        <path d="M82 58h26l-10 442H64Z" fill="url(#kw-shu)"/>
+        <path d="M412 58h26l18 442h-34Z" fill="url(#kw-shu)"/>
+        <path d="M82 58h7L72 500h-8Z" fill="#7b211d" opacity=".55"/>
+        <path d="M431 58h7l18 442h-8Z" fill="#7b211d" opacity=".55"/>
+        <path d="M50 154h420v20H50Z" fill="url(#kw-shu)"/>
+        <path d="M50 170h420v4H50Z" fill="#6f1e19" opacity=".7"/>
+        <path d="M68 150h8v28h-8Zm376 0h8v28h-8Z" fill="#5a1914"/>
+        <path d="M249 76h22v78h-22Z" fill="url(#kw-shu)"/>
+        <path d="M236 88h48v54h-48Z" fill="#1c1820" stroke="#b8924f" stroke-width="3"/>
+        <path d="M26 30Q90 52 150 56H370Q430 52 494 30L490 50Q430 74 370 78H150Q90 74 30 50Z" fill="url(#kw-shu)"/>
+        <path d="M30 50Q90 74 150 78H370Q430 74 490 50L489 54Q430 78 370 82H150Q90 78 31 54Z" fill="#6f1e19" opacity=".8"/>
+        <path d="M0 6Q70 34 150 38H370Q450 34 520 6L514 30Q450 56 370 60H150Q70 56 6 30Z" fill="url(#kw-kasagi)"/>
+        <path d="M2 7Q70 35 150 39H370Q450 35 518 7" fill="none" stroke="#6d6170" stroke-width="2"/>
+        <path d="M54 518c0-20 11-30 27-30s27 10 27 30Zm358 0c0-20 11-30 27-30s27 10 27 30Z" fill="#17151b"/>
+      </symbol>
+
+      <!-- 石灯籠: 上から 宝珠・笠・火袋（灯りの窓）・中台・竿・基礎 -->
+      <symbol id="kw-lantern" viewBox="0 0 100 220">
+        <path d="M50 2c7 8 10 15 5 21H45c-5-6-2-13 5-21Z" fill="url(#kw-stone)"/>
+        <path d="M43 23h14v6H43Z" fill="#545869"/>
+        <path d="M3 58Q6 50 0 44Q30 48 44 29h12Q70 48 100 44Q94 50 97 58Z" fill="url(#kw-stone)"/>
+        <path d="M6 58h88v6H6Z" fill="#454959"/>
+        <path d="M22 64h56v44H22Z" fill="url(#kw-stone)"/>
+        <path d="M33 71h34v31H33Z" fill="url(#kw-fire)"/>
+        <path d="M50 71v31" stroke="#5c5f6e" stroke-width="3"/>
+        <path d="M14 108h72l-7 12H21Z" fill="url(#kw-stone)"/>
+        <path d="M40 120h20v72H40Z" fill="url(#kw-stone)"/>
+        <path d="M37 152h26v6H37Z" fill="#5c6071"/>
+        <path d="M24 192h52l8 13H16Z" fill="url(#kw-stone)"/>
+        <path d="M10 205h80v13H10Z" fill="#4d5162"/>
+      </symbol>
+
+      <!-- 紙垂（白いギザギザの紙） -->
+      <symbol id="kw-shide" viewBox="0 0 16 44">
+        <path d="M2 0h8v11h6v11h-6v11h6v11H8V33H2V22h6V11H2Z" fill="#f2ede3"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <nav class="site-nav" aria-label="サイトの案内">
+    <div class="site-nav__inner">
+      <a class="site-nav__name" href="index.html">ドコカノロジウラ</a>
+      <ul class="site-nav__links">
+        <li><a href="index.html#products-heading">商品</a></li>
+        <li class="site-nav__contact"><a href="index.html#contact-heading">お問い合わせ</a></li>
+        <li><a href="https://yukisandosukebe.booth.pm/" target="_blank" rel="noopener">BOOTH</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="fox-main">
+    <!-- 最初の画面: 月夜の山の神社。奥へ続く鳥居の前に、指でつくった菱形の窓がかかる -->
+    <section class="fox-hero">
+      <!-- 空・月・山の端の杉並木・漂う鬼火と蛍 -->
+      <div class="fox-sky" aria-hidden="true">
+        <div class="fox-sky__moon"></div>
+        <svg class="fox-sky__ridge" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+          <g transform="translate(0 40)">
+            <path d="M0 150Q160 82 320 128T640 108Q820 52 1000 118T1440 98V360H0Z" fill="#131c40"/>
+            <path d="M0 196Q200 150 400 186T800 172Q1000 138 1200 182T1440 166V360H0Z" fill="#0e1534"/>
+            <path d="M0 212l12 -47l13 47ZM18 207l15 -41l15 41ZM38 207l16 -72l17 72ZM62 214l12 -41l13 41ZM79 207l11 -40l12 40ZM95 207l13 -64l13 64ZM113 214l11 -43l12 43ZM130 215l13 -41l13 41ZM148 216l10 -52l11 52ZM162 215l15 -41l15 41ZM183 206l14 -63l15 63ZM204 214l11 -40l12 40ZM220 210l16 -46l17 46ZM243 214l13 -47l13 47ZM261 210l10 -74l11 74ZM276 207l14 -49l14 49ZM295 216l14 -74l15 74ZM316 207l11 -61l12 61ZM332 215l14 -42l14 42ZM351 213l10 -51l10 51ZM365 212l15 -72l15 72ZM386 213l16 -58l16 58ZM409 211l14 -67l15 67ZM429 208l12 -53l12 53ZM446 207l15 -53l16 53ZM468 214l14 -57l15 57ZM488 213l13 -59l14 59ZM507 207l12 -42l12 42ZM524 208l14 -64l14 64ZM543 208l16 -59l16 59ZM566 212l17 -69l17 69ZM589 214l10 -42l10 42ZM603 211l14 -58l15 58ZM624 215l15 -60l16 60ZM645 207l13 -67l14 67ZM664 210l16 -43l17 43ZM687 206l13 -42l14 42ZM706 216l15 -57l16 57ZM728 210l14 -66l15 66ZM748 216l15 -62l16 62ZM770 213l12 -39l13 39ZM788 215l12 -48l13 48ZM805 206l10 -69l11 69ZM820 208l11 -56l12 56ZM836 212l15 -53l16 53ZM858 207l13 -69l13 69ZM876 212l11 -66l11 66ZM891 208l14 -55l14 55ZM911 214l16 -65l17 65ZM934 211l12 -64l12 64ZM951 209l15 -62l15 62ZM972 208l11 -43l11 43ZM987 216l11 -52l11 52ZM1002 213l11 -38l12 38ZM1019 210l16 -49l17 49ZM1042 208l12 -38l12 38ZM1058 211l13 -72l13 72ZM1077 211l14 -74l15 74ZM1097 215l11 -70l11 70ZM1112 213l15 -41l15 41ZM1133 212l17 -73l17 73ZM1157 212l13 -63l13 63ZM1175 216l10 -68l11 68ZM1190 209l13 -41l13 41ZM1208 213l10 -51l11 51ZM1223 211l11 -45l11 45ZM1238 207l14 -41l15 41ZM1259 208l10 -74l10 74ZM1273 211l14 -44l14 44ZM1292 207l14 -39l15 39ZM1313 215l16 -51l17 51ZM1336 216l13 -47l13 47ZM1354 215l12 -60l12 60ZM1371 207l12 -68l13 68ZM1388 213l10 -69l11 69ZM1403 210l13 -68l14 68ZM1422 207l10 -47l11 47ZM1436 210l15 -59l16 59Z" fill="#0a1029"/>
+          </g>
+          <path d="M0 252H1440V400H0Z" fill="#0a0f24"/>
+        </svg>
+        <i class="onibi onibi--1"></i><i class="onibi onibi--2"></i><i class="onibi onibi--3"></i>
+        <i class="hotaru hotaru--1"></i><i class="hotaru hotaru--2"></i><i class="hotaru hotaru--3"></i><i class="hotaru hotaru--4"></i><i class="hotaru hotaru--5"></i><i class="hotaru hotaru--6"></i>
+      </div>
+
+      <div class="fox-hero__inner">
+        <div class="fox-hero__copy">
+          <h1>狐の窓</h1>
+          <p class="fox-lead">指の<wbr>窓越しに<wbr>だけ、<wbr>もうひとつの<wbr>姿が<wbr>見える<wbr>アバター<wbr>ギミック</p>
+          <p class="fox-tags"><span>近日公開</span><span>アバター用</span><span>ワールド用</span></p>
+          <p class="fox-notice">公開したら BOOTH と X でお知らせします。</p>
+        </div>
+
+        <!-- 参道と鳥居の絵。真ん中の菱形の窓の中にだけ、狐に変わった顔の写真が見える -->
+        <div class="shrine-stage">
+          <svg class="shrine-stage__art" viewBox="0 0 760 640" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="kw-sando" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4160" stop-opacity="0"/><stop offset=".25" stop-color="#2d3350"/><stop offset="1" stop-color="#1a1f33"/></linearGradient>
+              <radialGradient id="kw-mist" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#a8e0ff" stop-opacity=".2"/><stop offset="1" stop-color="#a8e0ff" stop-opacity="0"/></radialGradient>
+            </defs>
+            <!-- 参道の石畳（奥へ細くなる） -->
+            <path d="M366 332h28l216 308H150Z" fill="url(#kw-sando)"/>
+            <path d="M346 360h68M322 395h116M290 440h180M248 500h264M196 575h368" stroke="#4d5574" stroke-width="3" opacity=".6"/>
+            <path d="M380 336V640M352 395l-8 45M410 395l8 45M320 440l-14 60M440 440l14 60M266 500l-20 75M494 500l20 75" stroke="#4d5574" stroke-width="2" opacity=".45"/>
+            <!-- 奥の鳥居（同じ形で小さく） -->
+            <ellipse cx="380" cy="320" rx="200" ry="70" fill="url(#kw-mist)"/>
+            <use href="#kw-torii" x="321.5" y="268.8" width="117" height="117" opacity=".5"/>
+            <use href="#kw-torii" x="282.5" y="228" width="195" height="195" opacity=".72"/>
+            <!-- 石灯籠（灯りのにじみは別の円でゆらぐ） -->
+            <circle class="lantern-halo" cx="219" cy="366" r="36" fill="url(#kw-halo)"/>
+            <circle class="lantern-halo lantern-halo--late" cx="541" cy="366" r="36" fill="url(#kw-halo)"/>
+            <use href="#kw-lantern" x="196" y="326" width="46" height="101"/>
+            <use href="#kw-lantern" x="518" y="326" width="46" height="101"/>
+            <!-- 手前の鳥居 -->
+            <use href="#kw-torii" x="55" y="-10" width="650" height="650"/>
+            <!-- 注連縄（柱の間で下へ垂れる）と紙垂 -->
+            <path d="M184 210Q380 282 576 210" fill="none" stroke="#cdb88a" stroke-width="12" stroke-linecap="round"/>
+            <path d="M184 210Q380 282 576 210" fill="none" stroke="#8c7650" stroke-width="12" stroke-dasharray="3 9" opacity=".7"/>
+            <use href="#kw-shide" x="273" y="234" width="14" height="36"/>
+            <use href="#kw-shide" x="333" y="242" width="14" height="36"/>
+            <use href="#kw-shide" x="413" y="242" width="14" height="36"/>
+            <use href="#kw-shide" x="473" y="234" width="14" height="36"/>
+            <!-- 狐の石像（柱の外の手前。2 体とも参道の方を向く。台座の底を絵の下の端にそろえる） -->
+            <image class="fox-statue" href="images/kw-fox-statue-r.webp" x="4" y="452" width="116" height="190"/>
+            <image class="fox-statue" href="images/kw-fox-statue.webp" x="640" y="452" width="116" height="190"/>
+          </svg>
+
+          <!-- 指でつくった菱形の窓（中にだけ写真） -->
+          <div class="fox-window">
+            <div class="fox-window__pane">
+              <img src="images/kw-window-square.webp" width="1024" height="1024" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="fox-content">
+      <!-- 紹介: 文の横（スマホでは文の下）に、掛け軸に仕立てた縦長の写真 -->
+      <section class="fox-intro">
+        <div class="fox-intro__text">
+          <p>指を組んで小さな窓をこしらえ、その隙間から覗くと、化けているものの正体が見える――。「狐の窓」と呼ばれる、古くからの言い伝えです。</p>
+          <p>このギミックは、その窓をあなたのアバターに宿します。両手のピースの指先を合わせて菱形の窓（輪っかも）をつくると、その窓越しに覗いたところだけ、あなたの姿が、もうひとつの姿に変わります。窓の外は、いつもの姿のままです。</p>
+        </div>
+        <div class="kakejiku">
+          <div class="kakejiku__mount">
+            <div class="kakejiku__photo">
+              <img src="images/kw-window-photo.webp" width="1200" height="1600" loading="lazy" alt="指でつくった窓の中だけ、顔が狐に変わって見える様子">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fox-section">
+        <h2>機能</h2>
+        <!-- 機能のカード: 紐で吊るした絵馬 -->
+        <div class="fox-features">
+          <article class="fox-feature">
+            <h3>指の窓</h3>
+            <p>両手のピースの指先を合わせた菱形（輪っかも）を窓と見分け、窓越しに見えたところだけが窓の中の姿で描かれます。</p>
+          </article>
+          <article class="fox-feature">
+            <h3>狐の窓枠</h3>
+            <p>ゲーム内メニューから、手のひらの上に狐の形の窓枠を出せます。大きさは手の大きさに合わせます。</p>
+          </article>
+          <article class="fox-feature">
+            <h3>狐の窓 ON</h3>
+            <p>窓越しに見たところだけ、窓の中の姿になります。着たときやワールドに入ったときは、いつも OFF から始まります。</p>
+          </article>
+          <article class="fox-feature">
+            <h3>窓の中のみ</h3>
+            <p>窓をつくらなくても、全身が窓の中の姿になります（鏡の中も）。</p>
+          </article>
+          <article class="fox-feature">
+            <h3>自分だけの姿</h3>
+            <p>自分の画面でだけ、全身が窓の中の姿になります。まわりの人には、いつもの姿のまま見えます。</p>
+          </article>
+          <article class="fox-feature">
+            <h3>写真にも写る</h3>
+            <p>VRChat のカメラで撮った写真に、それぞれの見え方のとおり写ります。</p>
+          </article>
+          <article class="fox-feature">
+            <h3>入れ方と取り外し</h3>
+            <p>日本語のセットアップ画面で5つの手順を選ぶだけ。元のアバターには手を加えず、コピーに入れます。取り外しもセットアップ画面からできます。</p>
+          </article>
+          <article class="fox-feature">
+            <h3>オプション（変身・鬼火）</h3>
+            <p>アバター用のオプションです。窓の中に別のアバターを出す「変身」と「鬼火」があります。本体と一緒に入れて使います。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="fox-section fox-howto">
+        <h2>使い方</h2>
+        <ol>
+          <li>本体の unitypackage を Unity のプロジェクトに取り込みます（オプションもお持ちなら続けて取り込みます）</li>
+          <li>「Tools」→「狐の窓」→「セットアップ…」を開き、5つの手順を順に選んで［セットアップ］を押し、アバターをアップロードします</li>
+          <li>VRChat で、アクションメニュー →「狐の窓」→「狐の窓 ON」を ON にして、指で窓をつくって覗きます</li>
+        </ol>
+      </section>
+
+      <div class="fox-notes">
+        <section class="fox-section fox-list">
+          <h2>必要な物</h2>
+          <ul>
+            <li>Unity と VRChat SDK（Avatars）</li>
+            <li>Modular Avatar と、一緒に入る NDMF</li>
+            <li>lilToon（狐の窓枠などに使います）</li>
+            <li>窓で切り替わる素材は、lilToon と Poiyomi です。それ以外の素材は、lilToon に変換した複製を作って切り替えます（見た目が元と変わることがあります）</li>
+            <li>PC 専用です（Android / Quest 向けのビルドでは窓が動きません）</li>
+            <li>画面・説明書・サポートは日本語のみです</li>
+            <li>VRChat SDK・Modular Avatar・NDMF・lilToon などは同梱していません。それぞれの配布元から入手してください</li>
+          </ul>
+        </section>
+        <section class="fox-section fox-list">
+          <h2>気をつける事</h2>
+          <ul>
+            <li>鏡の中では、窓は効きません（「窓の中のみ」のときは、鏡の中も窓の中の姿になります）</li>
+            <li>目から 50cm より遠い輪は窓になりません（腕を伸ばしきると反応しません）</li>
+            <li>影のつくライトが無いワールドでも窓が開くよう、深度用のライトを 1 つ入れます。そのため PC のパフォーマンスランクは Poor 以下になります</li>
+            <li>変身は、重さ・ダウンロードサイズ・パフォーマンスランクが、アバター約 2 体分になります</li>
+            <li>見る人の安全設定でシェーダーが止められていると、その人にはいつもの姿のまま見えます</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ワールド用: 夜の池の鳥居の下に浮かぶ泡 -->
+      <section class="fox-section world-bubble">
+        <h2>ワールド用: 狐の泡</h2>
+        <div class="world-bubble__intro">
+          <div class="pond-art" aria-hidden="true">
+            <svg viewBox="0 0 480 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="kw-pond-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1430"/><stop offset="1" stop-color="#1b2550"/></linearGradient>
+                <linearGradient id="kw-pond-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#132a4a"/><stop offset="1" stop-color="#071528"/></linearGradient>
+                <radialGradient id="kw-bubble-heart"><stop offset="0" stop-color="#f0d49a" stop-opacity=".3"/><stop offset=".6" stop-color="#b53a2a" stop-opacity=".1"/><stop offset="1" stop-color="#b53a2a" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="480" height="320" fill="url(#kw-pond-sky)"/>
+              <circle cx="398" cy="52" r="20" fill="#eee7d2" opacity=".9"/>
+              <path d="M0 150Q90 108 180 140T360 128Q420 112 480 132V176H0Z" fill="#0e1636"/>
+              <rect y="172" width="480" height="148" fill="url(#kw-pond-water)"/>
+              <path d="M392 182h12M384 196h28M390 212h16M396 228h6" stroke="#eee7d2" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+              <!-- 水に立つ鳥居とその映り -->
+              <use href="#kw-torii" x="170" y="34" width="140" height="140"/>
+              <g opacity=".22" transform="translate(0 350) scale(1 -1)">
+                <use href="#kw-torii" x="170" y="34" width="140" height="140"/>
+              </g>
+              <ellipse cx="206" cy="175" rx="16" ry="3" fill="none" stroke="#a8e0ff" stroke-opacity=".35" stroke-width="1.5"/>
+              <ellipse cx="274" cy="175" rx="16" ry="3" fill="none" stroke="#a8e0ff" stroke-opacity=".35" stroke-width="1.5"/>
+              <ellipse cx="240" cy="276" rx="92" ry="12" fill="none" stroke="#a8e0ff" stroke-opacity=".2" stroke-width="2"/>
+              <!-- 泡（大きな泡の芯がかすかに朱や金に光る） -->
+              <g class="pond-float">
+                <circle cx="240" cy="214" r="52" fill="url(#kw-bubble-heart)"/>
+                <circle cx="240" cy="214" r="52" fill="url(#kw-bubble)" stroke="#d6f2ff" stroke-opacity=".75" stroke-width="1.5"/>
+                <ellipse cx="220" cy="190" rx="13" ry="7" fill="#fff" opacity=".6" transform="rotate(-35 220 190)"/>
+              </g>
+              <g class="pond-float pond-float--late">
+                <circle cx="338" cy="134" r="18" fill="url(#kw-bubble)" stroke="#d6f2ff" stroke-opacity=".7" stroke-width="1.2"/>
+                <ellipse cx="332" cy="126" rx="5" ry="3" fill="#fff" opacity=".6" transform="rotate(-35 332 126)"/>
+                <circle cx="140" cy="150" r="12" fill="url(#kw-bubble)" stroke="#d6f2ff" stroke-opacity=".7" stroke-width="1"/>
+                <ellipse cx="136" cy="145" rx="3.5" ry="2" fill="#fff" opacity=".6" transform="rotate(-35 136 145)"/>
+              </g>
+              <g class="pond-fireflies" fill="#d6f2ff">
+                <circle cx="96" cy="236" r="3"/><circle cx="392" cy="252" r="3"/><circle cx="430" cy="160" r="2.5"/><circle cx="62" cy="180" r="2.5"/>
+              </g>
+            </svg>
+          </div>
+          <div>
+            <p class="world-bubble__lead">ワールドに<wbr>置く、<wbr>被ると<wbr>窓の<wbr>中の<wbr>姿が<wbr>見える<wbr>泡</p>
+            <p>泡を頭に被ると、その人の画面でだけ、ほかの人の窓の中の姿が見えます（指で窓を作らなくても見えます）。ワールドを作る方向けで、ワールド用のプロジェクトに入れます。</p>
+          </div>
+        </div>
+        <div class="bubble-features">
+          <article><h3>ワールド作り向け</h3><p>ワールド用の Unity プロジェクト（VRChat SDK（Worlds））に入れる別のパッケージです。アバター用のプロジェクトには入れません</p></article>
+          <article><h3>いくつでも置ける</h3><p>自分にも、ほかの人にも被せられます</p></article>
+          <article><h3>見える条件</h3><p>窓の中の姿が見えるのは、相手がアバターに狐の窓を入れていて「狐の窓 ON」か「窓の中のみ」を ON にしている時です</p></article>
+          <article><h3>外し方</h3><p>ジャンプボタンを 3 秒押し続けるか、泡の前のリセットボタンを押すと外れます</p></article>
+        </div>
+        <div class="bubble-requirements">
+          <h3>必要な物</h3>
+          <ul>
+            <li>Unity と VRChat SDK（Worlds）。U#（UdonSharp）は SDK に入っているので別に入れなくてよい</li>
+            <li>本体（アバター用）のパッケージは要りません</li>
+          </ul>
+        </div>
+      </section>
+
+      <p class="fox-notice fox-notice--end">公開したら BOOTH と X でお知らせします。</p>
+
+      <a class="fox-back" href="index.html#products-heading">路地へ戻る</a>
+    </div>
+  </main>
+
+  <footer class="container">
+    <p>© ドコカノロジウラ</p>
+    <p class="note">VRChat は VRChat Inc. の商標です。このサイトは VRChat Inc. の公式のものではありません。</p>
+  </footer>
+</body>
+</html>

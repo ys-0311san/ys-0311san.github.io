@@ -1,121 +1,1506 @@
 :root {
-  --night: #0f1220;
-  --night-light: #161a2b;
-  --panel: #20263a;
-  --line: #596078;
-  --text: #f4eee3;
-  --muted: #d6d0c5;
-  --lantern: #f2a24a;
-  --vermilion: #d9573b;
-  --focus: #ffe0a8;
+  --ai-sumi: #171c29;
+  --roji: #070a12;
+  --ishidatami: #0d111c;
+  --shironeri: #f2ede3;
+  --akari: #f0d49a;
+  --toushin: #e39a3b;
+  --koke: #a8cabb;
+  --mokuzai: #6a4d31;
+  --shu: #913828;
 }
 
 * { box-sizing: border-box; }
 
-html { background: var(--night); }
+html {
+  overflow-x: hidden;
+  background: var(--roji);
+}
 
 body {
+  position: relative;
+  isolation: isolate;
   min-width: 0;
+  min-height: 100vh;
   margin: 0;
-  color: var(--text);
-  background: linear-gradient(135deg, var(--night), var(--night-light));
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 16px;
+  overflow-x: hidden;
+  color: var(--shironeri);
+  background: transparent;
+  font-family: "BIZ UDPGothic", sans-serif;
+  font-size: 1rem;
   line-height: 1.85;
 }
 
-img { display: block; max-width: 100%; width: 100%; height: auto; }
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='180' viewBox='0 0 1200 180' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%2305070c' stroke-width='2'%3E%3Cpath d='M0 28 Q600 142 1200 36'/%3E%3Cpath d='M0 58 Q600 166 1200 66'/%3E%3Cpath d='M0 89 Q600 174 1200 96'/%3E%3C/g%3E%3C/svg%3E"),
+    repeating-linear-gradient(0deg, transparent 0 178px, rgba(3, 5, 9, .7) 179px 182px),
+    repeating-linear-gradient(90deg, #090c14 0 20px, #0d111c 21px 25px, #070a12 26px 27px),
+    repeating-linear-gradient(0deg, transparent 0 178px, rgba(3, 5, 9, .7) 179px 182px),
+    repeating-linear-gradient(90deg, #070a12 0 2px, #0d111c 3px 7px, #090c14 8px 27px),
+    linear-gradient(rgba(5, 7, 12, .08), rgba(5, 7, 12, .62)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='96' viewBox='0 0 160 96'%3E%3Cg stroke='%23090c14' stroke-width='2' stroke-opacity='.52'%3E%3Crect x='1' y='1' width='70' height='46' rx='5' fill='%230d111c' fill-opacity='.48'/%3E%3Crect x='73' y='1' width='86' height='46' rx='5' fill='%23101520' fill-opacity='.43'/%3E%3Crect x='-39' y='49' width='78' height='46' rx='5' fill='%230b0f19' fill-opacity='.44'/%3E%3Crect x='41' y='49' width='78' height='46' rx='5' fill='%230f1320' fill-opacity='.48'/%3E%3Crect x='121' y='49' width='78' height='46' rx='5' fill='%230b0f19' fill-opacity='.44'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(ellipse at center, #0d111c 0, #070a12 74%);
+  background-position: top center, top left, top left, top right, top right, center, center, center;
+  background-size: 100% 180px, clamp(8px, 6vw, 90px) 100%, clamp(8px, 6vw, 90px) 100%, clamp(8px, 6vw, 90px) 100%, clamp(8px, 6vw, 90px) 100%, 100% 100%, 160px 96px, 100% 100%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, no-repeat;
+  box-shadow: inset clamp(8px, 6vw, 90px) 0 rgba(3, 5, 10, .35), inset clamp(-90px, -6vw, -8px) 0 rgba(3, 5, 10, .35);
+}
 
-a { color: #ffe0a8; text-underline-offset: .2em; }
-a:hover { color: #fff5e5; }
-a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+img { display: block; width: 100%; height: auto; }
+a { color: var(--koke); text-underline-offset: .2em; }
+a:hover { color: var(--shironeri); }
+a:focus-visible { outline: 3px solid var(--akari); outline-offset: 3px; }
+p { max-width: 34em; overflow-wrap: anywhere; }
+.container { width: min(calc(100% - 32px), 960px); margin-inline: auto; }
 
-.container { width: min(100% - 32px, 960px); margin-inline: auto; }
+h1,
+h2,
+h3 {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+h2,
+h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
+h2 { margin: 0 0 24px; letter-spacing: .08em; }
+h3 { margin: 0; }
+
+/* 一番上の見出しの帯（軒下の暗い帯）。ページと一緒に流れる */
+.site-nav {
+  position: relative;
+  z-index: 20;
+  height: 56px;
+  border-bottom: 1px solid rgba(240, 212, 154, .14);
+  background: rgba(5, 7, 12, .88);
+}
+
+.site-nav__inner {
+  display: flex;
+  width: min(calc(100% - 32px), 1180px);
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-inline: auto;
+}
+
+.site-nav__name {
+  color: var(--shironeri);
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  font-size: .9375rem;
+  line-height: 1.2;
+  list-style: none;
+}
+
+.site-nav__links li,
+.site-nav__links li + li { margin: 0; }
+.site-nav__links a { color: var(--shironeri); text-decoration: none; white-space: nowrap; }
+.site-nav__name:hover,
+.site-nav__links a:hover { color: var(--akari); }
 
 .hero {
   position: relative;
   isolation: isolate;
+  min-height: max(650px, calc(100svh - 56px));
   overflow: hidden;
-  padding: 76px 0 64px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #171c28;
+  background:
+    linear-gradient(to bottom, rgba(5, 7, 13, .08), rgba(7, 10, 18, .38) 66%, rgba(9, 12, 20, .72)),
+    linear-gradient(90deg, rgba(7, 10, 18, .46), rgba(10, 14, 24, .2) 48%, rgba(7, 10, 18, .46));
 }
 
-.hero::before {
+.overhead { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
+
+.alley-depth {
   position: absolute;
-  z-index: -1;
-  top: -170px;
+  top: 7%;
+  bottom: 11%;
   left: 50%;
-  width: 520px;
-  max-width: 110vw;
-  aspect-ratio: 1;
-  content: "";
+  width: min(32vw, 280px);
+  min-width: 110px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgb(242 162 74 / 38%), rgb(217 87 59 / 12%) 38%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(170, 190, 230, .08), rgba(130, 153, 196, .025) 48%, transparent 73%);
 }
 
-h1, h2, h3 { font-family: "Zen Old Mincho", serif; line-height: 1.45; }
-h1 { margin: 0; font-size: clamp(2rem, 8vw, 3.5rem); }
-h2 { margin: 0 0 22px; font-size: clamp(1.65rem, 6vw, 2.25rem); }
-h3 { margin: 0; font-size: clamp(1.35rem, 5vw, 1.7rem); }
-.lead { margin: 12px 0 24px; color: var(--text); font-size: 1.05rem; }
+/* 看板・壁の字・矢印は真ん中の 1 本の線に並べ、小道具は区画の左右の端に置く。
+   --wall-gap は看板・字・矢印・地面の間の最小の隙間、--sign-drop は傾いた看板の下の端が真ん中で下がる分 */
+.hero__content {
+  --wall-gap: 56px;
+  --sign-drop: 24px;
+  position: relative;
+  display: flex;
+  width: min(calc(100% - 32px), 1180px);
+  min-height: max(650px, calc(100svh - 56px));
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0 calc(var(--wall-gap) + 28px);
+}
 
-.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+/* 壁を這う配管。上の曲がりと金具は SVG、そこから下のまっすぐな管は背景で伸ばす */
+.pipework {
+  position: absolute;
+  z-index: 1;
+  top: 93px;
+  bottom: 30px;
+  left: 0;
+  width: 64px;
+}
+
+.pipework svg { display: block; width: 64px; height: 340px; }
+
+.pipework::after {
+  position: absolute;
+  top: 339px;
+  bottom: 0;
+  left: 0;
+  width: 64px;
+  content: "";
+  background:
+    linear-gradient(rgba(240, 212, 154, .2), rgba(240, 212, 154, .2)) 17px 0 / 1.4px 100% no-repeat,
+    linear-gradient(rgba(240, 212, 154, .2), rgba(240, 212, 154, .2)) 39.6px 0 / 1px 100% no-repeat,
+    linear-gradient(90deg, #0b0e15, #1c222d 55%, #363e4b 80%, #10141b) 8px 0 / 12px 100% no-repeat,
+    linear-gradient(90deg, #0b0e15, #1c222d 55%, #363e4b 80%, #10141b) 34.5px 0 / 7px 100% no-repeat;
+}
+
+/* 左の壁の高い所の電気メーターと、貼り紙の跡 */
+.power-meter {
+  position: absolute;
+  z-index: 2;
+  top: 170px;
+  left: 76px;
+  width: 40px;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, .45));
+}
+
+.poster-scraps {
+  position: absolute;
+  z-index: 2;
+  top: 252px;
+  left: 70px;
+  width: 76px;
+}
+
+/* 室外機（猫を含む） */
+.air-conditioner {
+  position: absolute;
+  z-index: 3;
+  bottom: 35px;
+  left: 0;
+  width: clamp(108px, 19vw, 180px);
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .5));
+}
+
+.air-conditioner svg { display: block; width: 100%; height: auto; }
+
+/* 室外機の右のゴミ箱 */
+.trash-bin {
+  position: absolute;
+  z-index: 4;
+  bottom: 30px;
+  left: calc(clamp(108px, 19vw, 180px) + 4px);
+  width: clamp(40px, 5vw, 54px);
+  filter: drop-shadow(3px 6px 5px rgba(0, 0, 0, .45));
+}
+
+/* 自販機の左のビールケース */
+.beer-crates {
+  position: absolute;
+  z-index: 4;
+  right: calc(clamp(52px, 8vw, 76px) + 8px);
+  bottom: 28px;
+  width: clamp(46px, 6.4vw, 70px);
+  filter: drop-shadow(3px 6px 5px rgba(0, 0, 0, .45));
+}
+
+/* 壁の字の左下の地面の植木鉢（ゴミ箱より右に置く） */
+.plant-pot {
+  position: absolute;
+  z-index: 4;
+  bottom: 30px;
+  left: max(calc(50% - 262px), calc(clamp(108px, 19vw, 180px) + clamp(40px, 5vw, 54px) + 28px));
+  width: 40px;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, .45));
+}
+
+/* 真ん中に吊るした壊れかけの看板。細い鉄の棒から鎖 2 本で吊り、右の鎖が外れて右へ傾く */
+.sign-rig {
+  position: relative;
+  z-index: 8;
+  width: fit-content;
+  max-width: 100%;
+  padding-top: 44px;
+}
+
+/* 吊り下げの鉄の棒と、それを上から吊る針金 */
+.sign-rig__arm {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  left: 10px;
+  height: 5px;
+  border-radius: 2px;
+  background: linear-gradient(#4a4f58, #1d2027);
+  box-shadow: 0 2px #070605;
+}
+
+.sign-rig__arm::before,
+.sign-rig__arm::after {
+  position: absolute;
+  bottom: 100%;
+  width: 2px;
+  height: 80px;
+  content: "";
+  background: #151820;
+}
+
+.sign-rig__arm::before { left: 14px; }
+.sign-rig__arm::after { right: 14px; }
+
+.sign-rig__fixed-chain,
+.sign-rig__loose-chain {
+  position: absolute;
+  z-index: 2;
+  width: 3px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(to bottom, #665541 0 4px, #241e18 4px 7px);
+  transform-origin: top;
+}
+
+.sign-rig__fixed-chain { top: 10px; left: 40px; height: 37px; }
+.sign-rig__loose-chain { top: 10px; right: 40px; height: 21px; transform: rotate(-9deg); }
+
+/* 外れた鎖の先の開いたフック */
+.sign-rig__loose-chain::after {
+  position: absolute;
+  right: -3px;
+  bottom: -8px;
+  width: 7px;
+  height: 9px;
+  border: 2px solid #665541;
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+  content: "";
+}
+
+/* 横長の板。左の鎖の留め具を軸に傾く。字と板は幅 1200px あたりまで画面の幅に合わせて大きくなり、
+   それより狭い所では右の街灯に届かない大きさに留まる */
+.signboard {
+  position: relative;
+  max-width: 100%;
+  padding: clamp(18px, 1.7vw, 22px) clamp(28px, 2.65vw, 34px);
+  border: 2px solid #3b2e20;
+  background:
+    radial-gradient(circle at 13% 30%, rgba(165, 129, 85, .12) 0 5%, transparent 6%),
+    radial-gradient(circle at 62% 74%, rgba(178, 137, 87, .08) 0 7%, transparent 8%),
+    radial-gradient(circle at 88% 22%, rgba(0, 0, 0, .16) 0 6%, transparent 7%),
+    linear-gradient(180deg, #2b2218, #1f180f);
+  box-shadow: 4px 8px 13px rgba(0, 0, 0, .55), inset 0 0 14px rgba(0, 0, 0, .4);
+  transform: rotate(4deg);
+  transform-origin: 41px 0;
+}
+
+.signboard h1 {
+  margin: 0;
+  color: var(--shironeri);
+  font-size: clamp(2rem, 7vw, 5.25rem);
+  letter-spacing: .04em;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 0 4px var(--toushin), 0 0 11px rgba(227, 154, 59, .72), 0 0 20px rgba(227, 115, 42, .28);
+  animation: sign-ignite 1.25s ease-out .28s both;
+}
+
+.signboard h1 span { display: inline-block; }
+.signboard h1 .signboard__dark { color: #5a4a35; text-shadow: none; }
+.signboard h1 .signboard__flicker { animation: broken-letter 7.2s linear 1.7s infinite; }
+
+.signboard__crack {
+  position: absolute;
+  z-index: 2;
+  height: 2px;
+  background: #0c0906;
+  transform-origin: left;
+}
+
+.signboard__crack::after {
+  position: absolute;
+  left: 62%;
+  width: 15px;
+  height: 2px;
+  content: "";
+  background: #0c0906;
+  transform: rotate(43deg);
+  transform-origin: left;
+}
+
+.signboard__crack--one { top: 14%; left: 17%; width: clamp(28px, 8%, 64px); transform: rotate(28deg); }
+.signboard__crack--two { right: 8%; bottom: 16%; width: clamp(22px, 6%, 50px); transform: rotate(-24deg); }
+
+/* 街灯。灯具（head）は縦横比を保ち、柱（pole）だけを残りの高さに伸ばす */
+.streetlight { --lamp-w: 120px; pointer-events: none; }
+.streetlight svg {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.streetlight__head { top: 0; height: calc(var(--lamp-w) * .75); }
+.streetlight__pole { top: calc(var(--lamp-w) * .75 - 1px); height: calc(100% - var(--lamp-w) * .75 + 1px); }
+.streetlight__post { fill: none; stroke: #1b1f27; stroke-width: 7; stroke-linecap: round; }
+.streetlight__shade { stroke: #11151c; stroke-width: 1.2; }
+.streetlight__halo { animation: light-appear 1.3s ease-out .12s both; }
+.streetlight__bulb {
+  fill: #ffe6a8;
+  filter: drop-shadow(0 0 5px #ffe6a8) drop-shadow(0 0 13px rgba(255, 214, 130, .6));
+  animation: lamp-ignite 1.3s ease-out .12s both;
+}
+
+.streetlight__cone {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--lamp-w) * .4);
+  left: 77.5%;
+  width: 190%;
+  height: calc(100% - var(--lamp-w) * .4);
+  background: linear-gradient(to bottom, rgba(255, 226, 160, .21), rgba(240, 205, 135, .085) 52%, rgba(240, 205, 135, .025) 88%, transparent);
+  clip-path: polygon(48.5% 0, 51.5% 0, 100% 94%, 82% 100%, 18% 100%, 0 94%);
+  -webkit-mask-image: radial-gradient(ellipse 54% 104% at 50% 0, #000 0 57%, rgba(0, 0, 0, .74) 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse 54% 104% at 50% 0, #000 0 57%, rgba(0, 0, 0, .74) 70%, transparent 100%);
+  transform: translateX(-50%);
+  animation: light-appear 1.3s ease-out .12s both;
+}
+
+.streetlight__pool {
+  position: absolute;
+  z-index: 1;
+  bottom: -8px;
+  left: 25%;
+  width: 190%;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255, 226, 160, .16), transparent 70%);
+  transform: translateX(-25%);
+  animation: light-appear 1.3s ease-out .12s both;
+}
+
+.streetlight--hero {
+  --lamp-w: clamp(125px, 18vw, 220px);
+  position: absolute;
+  z-index: 2;
+  top: 54px;
+  right: -5px;
+  bottom: 34px;
+  width: var(--lamp-w);
+}
+
+.streetlight--hero .streetlight__cone {
+  width: 540%;
+}
+
+/* 自動販売機と、その前の地面に漏れる白っぽい光 */
+.vending-machine {
+  position: absolute;
+  z-index: 5;
+  right: 3px;
+  bottom: 28px;
+  width: clamp(52px, 8vw, 76px);
+  filter: drop-shadow(0 0 9px rgba(207, 227, 240, .18)) drop-shadow(7px 9px 9px rgba(0, 0, 0, .5));
+}
+
+.vending-machine svg { display: block; width: 100%; height: auto; }
+
+.vending-glow {
+  position: absolute;
+  z-index: 1;
+  right: -50px;
+  bottom: 0;
+  width: 200px;
+  height: 180px;
+  background:
+    radial-gradient(ellipse 46% 14% at 66% 86%, rgba(222, 236, 245, .16), transparent 100%),
+    radial-gradient(ellipse at 65% 60%, rgba(207, 227, 240, .13), transparent 68%);
+}
+
+.puddle {
+  position: absolute;
+  z-index: 3;
+  right: 7%;
+  bottom: 22px;
+  width: clamp(130px, 27vw, 250px);
+  height: 30px;
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 22%, rgba(255, 230, 168, .22) 46% 57%, transparent 78%),
+    radial-gradient(ellipse, #111827 0, #080c15 66%, transparent 70%);
+  box-shadow: inset 0 2px rgba(157, 179, 212, .08);
+  transform: rotate(-2deg);
+}
+
+/* 看板の下の壁: ペンキでじかに書いた紹介文と行き先、その下のペンキの矢印。
+   看板の下から地面までを埋め、余った高さは 看板と字・行き先と矢印・矢印と地面 の 3 つの間へ等しく配る */
+.hero__intro {
+  position: relative;
+  z-index: 7;
+  display: flex;
+  width: min(100%, 440px);
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc(var(--wall-gap) + var(--sign-drop));
+}
+
+/* 壁にじかにペンキで書いた紹介文。矢印と同じかすれた白で、少しだけ傾く */
+.wall-text {
+  max-width: none;
+  margin: auto 0 0;
+  color: #d9d4c6;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.8;
+  opacity: .92;
+  text-align: center;
+  text-shadow: 0 0 1px rgba(217, 212, 198, .45), 1px 2px 0 rgba(0, 0, 0, .35);
+  text-wrap: balance;
+  transform: rotate(-.6deg);
+  word-break: auto-phrase;
+}
+
+/* 紹介文の下に、ペンキの四角で囲んで書いた行き先 2 つ */
+.wall-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 18px;
+  margin: 30px 0 0;
+  padding: 0 0 var(--wall-gap);
+  list-style: none;
+}
+
+.wall-links li,
+.wall-links li + li { margin: 0; }
+
+.wall-link {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid currentColor;
+  border-radius: 3px 6px 2px 5px / 5px 2px 6px 3px;
+  color: #d9d4c6;
+  font-size: .9375rem;
+  font-weight: 700;
+  line-height: 1.5;
+  opacity: .9;
+  text-decoration: none;
+  text-shadow: 1px 2px 0 rgba(0, 0, 0, .35);
+  transition: color .2s;
+  white-space: nowrap;
+}
+
+.wall-link:hover,
+.wall-link:focus-visible { color: var(--akari); }
+.wall-link:focus-visible { outline: 3px solid var(--akari); outline-offset: 4px; }
+
+/* 壁にペンキで描いた下向きの矢印。矢印を真ん中に置き、字はその右 */
+.wall-arrow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 14px;
+  margin: auto 0;
+  color: #d9d4c6;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.wall-arrow__mark {
+  display: block;
+  grid-column: 2;
+  width: 67px;
+  height: 100px;
+  opacity: .85;
+  transition: transform .2s;
+}
+
+.wall-arrow span {
+  grid-column: 3;
+  justify-self: start;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 1.375rem;
+  letter-spacing: .06em;
+  line-height: 1.3;
+  opacity: .92;
+  text-shadow: 0 0 1px rgba(217, 212, 198, .45), 1px 2px 0 rgba(0, 0, 0, .35);
+  white-space: nowrap;
+}
+
+.wall-arrow:hover,
+.wall-arrow:focus-visible { color: #f0d49a; }
+.wall-arrow:hover .wall-arrow__mark,
+.wall-arrow:focus-visible .wall-arrow__mark { transform: translateY(4px); }
+
 .button {
   display: inline-flex;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 9px 18px;
-  border: 1px solid var(--lantern);
-  border-radius: 6px;
-  color: #1a1420;
-  background: var(--lantern);
+  padding: 9px 16px;
+  border: 1px solid var(--akari);
+  border-radius: 2px;
+  color: var(--ai-sumi);
+  background: var(--akari);
   font-weight: 700;
   line-height: 1.4;
+  text-align: center;
   text-decoration: none;
 }
-.button:hover { color: #1a1420; background: #ffc16f; }
-.button--quiet { color: var(--text); background: rgb(15 18 32 / 60%); }
-.button--quiet:hover { color: #fff; background: rgb(32 38 58 / 85%); }
 
-main { padding: 56px 0 72px; }
-section + section { margin-top: 66px; }
-.product-list { display: grid; gap: 24px; }
-.product-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
-.product-card__media { min-width: 0; background: var(--night); }
-.product-card__body { min-width: 0; padding: 24px 20px; }
-.subtitle { margin: 4px 0 20px; color: var(--lantern); font-size: .95rem; font-weight: 700; }
-p { overflow-wrap: anywhere; }
+.button:hover { color: var(--ai-sumi); background: var(--shironeri); }
+
+.main-content { padding: 0; }
+.signpost {
+  position: relative;
+  width: fit-content;
+  max-width: calc(100% - 24px);
+  margin: 48px 0 72px clamp(8px, 9vw, 84px);
+  padding: 9px 19px 10px;
+  border: 2px solid #302419;
+  color: var(--shironeri);
+  background:
+    radial-gradient(circle at 22% 30%, rgba(255, 255, 255, .05), transparent 17%),
+    linear-gradient(175deg, #3e2e20, #281e16);
+  box-shadow: 3px 5px 8px rgba(0, 0, 0, .48);
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: clamp(.78rem, 2.5vw, 1rem);
+  line-height: 1.55;
+  transform: rotate(-2deg);
+}
+
+.signpost::before,
+.signpost::after {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  content: "";
+  background: #16120e;
+  box-shadow: inset 1px 1px #594632;
+  transform: translateY(-50%);
+}
+
+.signpost::before { left: 7px; }
+.signpost::after { right: 7px; }
+.products {
+  position: relative;
+  left: 50%;
+  width: min(calc(100vw - 32px), 1180px);
+  margin: 0;
+  transform: translateX(-50%);
+}
+
+/* 店先が拡大してもはみ出さないよう、並びの外側に余白を持たせる */
+.products > h2 { text-align: center; }
+.product-list { display: grid; gap: 64px; padding-inline: 12px; }
+
+/* 店ごとの木の枠 */
+.storefront { --frame: var(--mokuzai); }
+.storefront--closed { --frame: var(--shu); }
+
+/* 店の 1 つの単位（正方形の店先＋小見出し） */
+.storefront {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 420px;
+  min-width: 0;
+  flex-direction: column;
+  margin-inline: auto;
+}
+
+.storefront:hover,
+.storefront:focus-within { z-index: 2; }
+
+/* カード 1 枚まるごとのリンク（正方形の店先・名前・小見出し・札） */
+.storefront__link {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  color: var(--shironeri);
+  text-decoration: none;
+}
+
+.storefront__link:hover { color: var(--shironeri); }
+.storefront__link:focus-visible { outline: 3px solid var(--akari); outline-offset: 10px; }
+.storefront__link:hover .storefront__name,
+.storefront__link:focus-visible .storefront__name { color: var(--akari); }
+
+/* 正方形の店先 */
+.storefront__front {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  flex-direction: column;
+  border: solid var(--frame);
+  border-width: 14px 8px 10px;
+  color: var(--shironeri);
+  background: var(--frame);
+  box-shadow: 0 14px 22px rgba(0, 0, 0, .45);
+  text-decoration: none;
+  transition: transform .25s ease;
+}
+
+
+/* 店先の前の地面に落ちる灯り */
+.storefront__front::after {
+  position: absolute;
+  z-index: -1;
+  top: calc(100% + 10px);
+  right: -5%;
+  left: -5%;
+  height: 60px;
+  content: "";
+  background: radial-gradient(ellipse at center top, rgba(240, 212, 154, .14) 0, rgba(227, 154, 59, .05) 44%, transparent 72%);
+  pointer-events: none;
+}
+
+/* 店の中（正方形の全部）。シャッターが開ききると外は切れて見えなくなる */
+.storefront__interior {
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #211e19, #2a241c);
+}
+
+/* 店の中の灯り（カーソルを合わせると少し明るくなる） */
+.storefront__interior::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  background: radial-gradient(ellipse at 50% 35%, rgba(255, 226, 160, .2), transparent 62%);
+  opacity: .35;
+  pointer-events: none;
+  transition: opacity .6s ease;
+}
+
+.storefront__media { position: absolute; inset: 0; }
+.storefront__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* シャッター。ふだんは店の中の高さの半分まで下りている */
+.shutter {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  transform: translateY(-50%);
+  transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+  pointer-events: none;
+}
+
+.shutter__surface {
+  position: absolute;
+  inset: 0;
+  border-bottom: 4px solid #1b2030;
+  background: repeating-linear-gradient(0deg, #343b4c 0 5px, #292f40 5px 10px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .45);
+}
+
+/* シャッターの下の端の取っ手の帯 */
+.shutter__surface::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 12px;
+  content: "";
+  background:
+    linear-gradient(#5a6378, #5a6378) center 4px / 22% 3px no-repeat,
+    linear-gradient(#3e465a, #262c3b);
+  box-shadow: inset 0 1px rgba(240, 212, 154, .18);
+}
+
+.badge {
+  z-index: 1;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 4px 13px;
+  border: 2px solid var(--shu);
+  color: var(--shironeri);
+  background: #30374a;
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  transform: rotate(-4deg);
+}
+
+/* シャッターに貼った札（シャッターの見えている下半分の真ん中） */
+.shutter .badge {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+}
+
+.storefront:hover .storefront__front,
+.storefront:focus-within .storefront__front { transform: scale(1.04); }
+.storefront:hover .shutter,
+.storefront:focus-within .shutter { transform: translateY(-100%); }
+.storefront:hover .storefront__interior::after,
+.storefront:focus-within .storefront__interior::after { opacity: 1; }
+
+/* 店先の下の商品名 */
+.storefront__name { margin: 20px 0 0; color: var(--shironeri); font-size: clamp(1.3rem, 4vw, 1.8rem); line-height: 1.2; }
+.storefront__link > .subtitle { margin: 8px 0 0; }
+
+/* 状態と種類の札。カードの下の端にそろえる */
+.storefront__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 0; padding-top: 16px; }
+
+.tag {
+  padding: 2px 8px;
+  border: 1px solid #aaa59c;
+  border-radius: 2px;
+  color: #aaa59c;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.tag--status { border-color: var(--akari); color: var(--akari); }
+.tag--soon { border-color: #d6d1c7; color: #d6d1c7; }
+
+.subtitle { margin: 0 0 20px; color: var(--akari); font-weight: 700; }
 ul { margin: 20px 0; padding-left: 1.35em; }
 li + li { margin-top: 8px; }
-.note { color: var(--muted); font-size: .84rem; line-height: 1.7; }
+.note { font-size: .875rem; }
 
-.fox-window {
+.storefront--closed .subtitle { color: #e9b8a8; }
+
+/* 狐の窓の飾り */
+.storefront__interior--fox { background: #151e34; }
+.fox-display { position: absolute; inset: 0; overflow: hidden; background: #11192c; }
+.fox-window { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(circle at 50% 69%, rgba(240, 212, 154, .12), transparent 30%); }
+.fox-window__diamond { position: absolute; top: 49%; left: 50%; width: min(34%, 155px); aspect-ratio: 1; border: 1px solid var(--akari); transform: translate(-50%, -10%) rotate(45deg); }
+.fox-window span { position: absolute; top: 58%; left: 50%; color: var(--shironeri); font-weight: 700; letter-spacing: .18em; transform: translateX(-50%); writing-mode: vertical-rl; }
+
+.contact {
   position: relative;
-  display: grid;
-  min-height: 280px;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  place-items: center;
-  background: radial-gradient(circle at 50% 48%, rgb(242 162 74 / 34%), rgb(217 87 59 / 10%) 38%, var(--night-light) 72%);
+  width: min(92%, 670px);
+  margin: 96px auto 0;
+  padding: 34px clamp(22px, 5vw, 48px) 30px;
+  color: var(--ai-sumi);
+  background: #e9e1cf;
+  transform: rotate(-.7deg);
 }
-.fox-window__diamond { position: absolute; width: 47%; aspect-ratio: 1; border: 1px solid var(--lantern); transform: rotate(45deg); }
-.fox-window span { z-index: 1; color: var(--text); font-family: "Zen Old Mincho", serif; font-size: 1.55rem; letter-spacing: .18em; writing-mode: vertical-rl; }
-.title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.badge { padding: 1px 8px; border: 1px solid var(--lantern); border-radius: 3px; color: var(--lantern); font-size: .8rem; font-weight: 700; line-height: 1.7; }
-.contact { padding: 28px 20px; border-left: 3px solid var(--vermilion); background: rgb(32 38 58 / 70%); }
+
+.contact::before,
+.contact::after { position: absolute; top: 13px; width: 8px; height: 8px; border-radius: 50%; content: ""; background: #403b36; }
+.contact::before { left: 18px; }
+.contact::after { right: 18px; }
+.contact h2 { margin-bottom: 14px; }
 .contact p { margin-bottom: 0; }
-footer { padding: 28px 0; border-top: 1px solid var(--line); background: rgb(0 0 0 / 16%); }
-footer p { margin: 0; }
-footer .note { margin-top: 7px; }
+.contact a { color: #275c4d; font-weight: 700; }
+.contact a:hover { color: #183e34; }
+.contact a:focus-visible { outline-color: var(--ai-sumi); }
+
+footer { padding-top: 118px; padding-bottom: 34px; font-size: .875rem; text-align: center; }
+footer p { margin-inline: auto; margin-top: 0; margin-bottom: 0; }
+footer .note { margin-top: 8px; }
+
+/* ---- 最初の画面より下の路地の小道具。どれも字と店の後ろ（z-index: -1）に置き、店より暗く小さく端に寄せる ---- */
+/* 道しるべの上の余白を main の中に収め、main の上の端を最初の画面との境目にそろえる。
+   --alley-gap は最初の画面の地面と商品の節（電線・道しるべ）の間の空き */
+.main-content {
+  --alley-gap: 120px;
+  position: relative;
+  display: flow-root;
+  padding-top: var(--alley-gap);
+}
+
+/* 小道具を並べる層。幅は最初の画面の中身（.hero__content）と同じ */
+.alley-props {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  width: min(calc(100vw - 32px), 1180px);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+/* 小道具を消す・出すの指定（class 1 つ）が勝つよう、ここは :where で詳細度を下げる */
+:where(.alley-props, .alley-end) svg { display: block; overflow: visible; }
+
+/* 頭上の電線と裸電球。電球は 1 本目の電線の 80% の所（高さ 64px）から吊るす */
+.alley-props--overhead { top: var(--alley-gap); height: 160px; }
+
+/* 最初の画面の地面の下に落ちる影。境目の明るさの段をやわらげる */
+.alley-props--overhead::before {
+  position: absolute;
+  top: calc(-1 * var(--alley-gap));
+  left: 50%;
+  width: 100vw;
+  height: 130px;
+  content: "";
+  background: linear-gradient(rgba(5, 7, 12, .6), rgba(5, 7, 12, .2) 45%, transparent);
+  transform: translateX(-50%);
+}
+.alley-wires { width: 100%; height: 160px; }
+
+.hanging-bulb {
+  position: absolute;
+  top: 64px;
+  left: 80%;
+  width: 30px;
+  margin-left: -15px;
+}
+
+.hanging-bulb svg { position: relative; width: 30px; height: 80px; }
+
+.hanging-bulb__halo,
+.bracket-lamp__halo {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 226, 160, .2), rgba(240, 205, 135, .06) 38%, transparent 68%);
+  transform: translate(-50%, -50%);
+}
+
+.hanging-bulb__halo { top: 62px; left: 15px; }
+
+.hanging-bulb__glass,
+.bracket-lamp__glass {
+  fill: #ffe6a8;
+  filter: drop-shadow(0 0 4px #ffe6a8) drop-shadow(0 0 10px rgba(255, 214, 130, .55));
+}
+
+/* 節の間を区切る横いっぱいの石の帯（②の石畳と同じ考え）。間ごとに石の形・色・水たまりを変える。
+   どれも上下の端を壁に溶かし、店と張り紙より暗くする */
+.alley-band {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  width: 100vw;
+  pointer-events: none;
+  transform: translateX(-50%);
+  -webkit-mask-image: linear-gradient(transparent, #000 28%, #000 74%, transparent);
+  mask-image: linear-gradient(transparent, #000 28%, #000 74%, transparent);
+}
+
+.alley-band__puddle { top: 42%; height: 16px; }
+
+/* ①: 最初の画面との境目の空き（--alley-gap）の真ん中の、赤茶のれんが（水たまりなし） */
+.alley-props--gap { top: 0; height: var(--alley-gap); }
+
+.alley-band--brick {
+  top: 50%;
+  height: 58px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='16' viewBox='0 0 48 16'%3E%3Cg fill='%23281812'%3E%3Crect x='1' y='1' width='46' height='6.4' rx='1'/%3E%3Crect x='-23' y='9' width='46' height='6.4' rx='1'/%3E%3Crect x='25' y='9' width='46' height='6.4' rx='1'/%3E%3C/g%3E%3Cg fill='%23f0d49a' fill-opacity='.05'%3E%3Crect x='3' y='1.4' width='30' height='1'/%3E%3Crect x='27' y='9.4' width='18' height='1'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 48px 16px repeat,
+    #0a0807;
+  transform: translate(-50%, -50%);
+}
+
+/* 店の両脇の層（.products の箱に重ねる）。--ground-top は店の並びの下の端から石畳の帯の上の端まで、
+   --feet は地面に立つ物の足元まで。札の行と石畳の間を空けて、店の節と次の節を分ける */
+.alley-props--shops {
+  --ground-top: 64px;
+  --feet: 98px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: none;
+}
+
+/* 左の壁の雨どい。最初の画面の太い管と同じ位置・同じ塗りで、①のれんがの帯の下の端から地面まで（帯は横切らない）。
+   帯の下の端は境目から 空きの半分＋帯の高さの半分（29px）、境目は .products の 168px＋空きの分だけ上 */
+.downpipe {
+  position: absolute;
+  top: calc(-168px - var(--alley-gap) / 2 + 29px);
+  bottom: calc(-1 * var(--feet));
+  left: 12px;
+  width: 12px;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 116px, #313844 116px 121px, transparent 121px 160px),
+    linear-gradient(rgba(240, 212, 154, .2), rgba(240, 212, 154, .2)) 9px 0 / 1.4px 100% no-repeat,
+    linear-gradient(90deg, #0b0e15, #1c222d 55%, #363e4b 80%, #10141b);
+  box-shadow: 3px 0 4px rgba(0, 0, 0, .3);
+}
+
+/* 雨どいの上の端: 壁から出てくる継ぎ手（帯のすぐ下に留める金具） */
+.downpipe::before {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 18px;
+  height: 9px;
+  border-radius: 1px;
+  content: "";
+  background: linear-gradient(90deg, #1a1f28, #313844 60%, #4a515d 82%, #1a1f28);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .45), inset 0 1px rgba(240, 212, 154, .14);
+}
+
+/* 雨どいに絡む蔦 */
+.pipe-ivy {
+  position: absolute;
+  top: 180px;
+  left: 2px;
+  width: 58px;
+  height: auto;
+}
+
+/* 右の壁のガスのメーター（換気扇と勝手口の間） */
+.gas-meter {
+  position: absolute;
+  top: 170px;
+  right: 44px;
+  width: 40px;
+  height: auto;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, .4));
+}
+
+/* 左上の明かりのついた格子窓（すだれと窓辺の植木鉢）と、下の壁に漏れる灯り */
+.lit-window {
+  position: absolute;
+  top: 24px;
+  left: 26px;
+  width: clamp(118px, 12vw, 150px);
+  height: auto;
+}
+
+.lit-window__spill {
+  position: absolute;
+  top: 40px;
+  left: -10px;
+  width: 230px;
+  height: 300px;
+  background: radial-gradient(ellipse 50% 52% at 44% 30%, rgba(240, 212, 154, .075), transparent 100%);
+}
+
+/* 右上の換気扇。羽根がゆっくり回る */
+.vent-fan {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 60px;
+  height: auto;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, .4));
+}
+
+.vent-fan__blades {
+  transform-box: view-box;
+  transform-origin: 31px 31px;
+  animation: vent-spin 5.5s linear infinite;
+}
+
+/* 右の勝手口（扉の上の小さな灯り）と、その左の傘立て */
+.back-door {
+  position: absolute;
+  right: 16px;
+  bottom: calc(-1 * var(--feet));
+  width: clamp(84px, 8vw, 104px);
+  height: auto;
+}
+
+.back-door__bulb {
+  fill: #ffe6a8;
+  filter: drop-shadow(0 0 4px #ffe6a8) drop-shadow(0 0 9px rgba(255, 214, 130, .5));
+}
+
+.umbrella-stand {
+  position: absolute;
+  right: calc(clamp(84px, 8vw, 104px) + 24px);
+  bottom: calc(-1 * var(--feet));
+  width: 36px;
+  height: auto;
+}
+
+/* 左の地面に止めた自転車（前かご付き） */
+.alley-bicycle {
+  position: absolute;
+  bottom: calc(-1 * var(--feet));
+  left: 30px;
+  width: clamp(130px, 13vw, 170px);
+  height: auto;
+}
+
+/* 濡れた石畳の帯。画面の幅いっぱいに、店の並びと張り紙の間へ敷く */
+.alley-ground,
+.alley-end__ground {
+  position: absolute;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='22' viewBox='0 0 64 22'%3E%3Cg fill='%23121725' stroke='%23070a12' stroke-width='2'%3E%3Crect x='1' y='1' width='28' height='9' rx='4'/%3E%3Crect x='33' y='1' width='30' height='9' rx='4'/%3E%3Crect x='-15' y='12' width='30' height='9' rx='4'/%3E%3Crect x='17' y='12' width='28' height='9' rx='4'/%3E%3Crect x='49' y='12' width='30' height='9' rx='4'/%3E%3C/g%3E%3Cg fill='%23f0d49a' fill-opacity='.06'%3E%3Crect x='5' y='2.5' width='18' height='1.4' rx='.7'/%3E%3Crect x='37' y='2.5' width='20' height='1.4' rx='.7'/%3E%3Crect x='21' y='13.5' width='18' height='1.4' rx='.7'/%3E%3Crect x='53' y='13.5' width='8' height='1.4' rx='.7'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 64px 22px repeat,
+    linear-gradient(#0b0f18, #080b13);
+  -webkit-mask-image: linear-gradient(transparent, #000 32%, #000 72%, transparent);
+  mask-image: linear-gradient(transparent, #000 32%, #000 72%, transparent);
+}
+
+.alley-ground {
+  top: calc(100% + var(--ground-top));
+  left: 50%;
+  width: 100vw;
+  height: 66px;
+  transform: translateX(-50%);
+}
+
+/* 石畳の水たまり。勝手口の前の水たまりには扉の灯りが映り、ときどき波紋が広がる */
+.alley-puddle {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 22%, rgba(255, 230, 168, .17) 46% 57%, transparent 78%),
+    radial-gradient(ellipse, #111827 0, #080c15 66%, transparent 70%);
+  box-shadow: inset 0 2px rgba(157, 179, 212, .08);
+}
+
+.alley-puddle--door { right: 0; bottom: calc(-1 * var(--feet) - 14px); width: 210px; height: 24px; transform: rotate(-1.5deg); }
+.alley-puddle--small { bottom: calc(-1 * var(--feet) - 20px); left: 36%; width: 96px; height: 14px; opacity: .8; }
+
+.alley-puddle__ripple {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  width: 60%;
+  height: 76%;
+  border: 1px solid rgba(207, 227, 240, .3);
+  border-radius: 50%;
+  opacity: 0;
+  animation: puddle-ripple 4.6s ease-out 1s infinite;
+}
+
+/* 節の間②: 石畳の真ん中あたりを歩いて横切る黒猫（足元は地面の線） */
+.walking-cat {
+  position: absolute;
+  bottom: calc(-1 * var(--feet) - 6px);
+  left: 56%;
+  width: clamp(70px, 7vw, 96px);
+  height: auto;
+}
+
+/* 張り紙の両脇の層（main の下の端にそろえる） */
+.alley-props--notice { bottom: 0; height: 300px; }
+
+.old-posters {
+  position: absolute;
+  bottom: 34px;
+  left: 30px;
+  width: 130px;
+  height: auto;
+}
+
+.chalk-cat {
+  position: absolute;
+  bottom: -104px;
+  left: 76px;
+  width: 80px;
+  height: auto;
+  transform: rotate(-5deg);
+}
+
+/* 右の壁の腕金に付けた裸電球と、壁を這って下りる電線 */
+.bracket-lamp {
+  position: absolute;
+  right: 30px;
+  bottom: 74px;
+  width: 70px;
+}
+
+.bracket-lamp svg { position: relative; width: 70px; height: 90px; }
+.bracket-lamp__halo { top: 45px; left: 22px; }
+
+.wall-cables {
+  position: absolute;
+  right: 38px;
+  bottom: -60px;
+  width: 10px;
+  height: 204px;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 40px, #2a2f38 40px 44px) 0 0 / 10px 100% no-repeat,
+    linear-gradient(#05070b, #05070b) 2px 0 / 1.6px 100% no-repeat,
+    linear-gradient(#05070b, #05070b) 6.5px 0 / 1.6px 100% no-repeat;
+}
+
+/* 節の間③: 著作の表示の上の、灰色の角石の帯（小さな水たまり）。提灯の列はその上に吊るす */
+.alley-band--setts {
+  top: 158px;
+  height: 52px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='26' viewBox='0 0 40 26'%3E%3Cg fill='%2316191f' stroke='%23070a12' stroke-width='2'%3E%3Crect x='1' y='1' width='18' height='11' rx='2'/%3E%3Crect x='21' y='1' width='18' height='11' rx='2'/%3E%3Crect x='-9' y='14' width='18' height='11' rx='2'/%3E%3Crect x='11' y='14' width='18' height='11' rx='2'/%3E%3Crect x='31' y='14' width='18' height='11' rx='2'/%3E%3C/g%3E%3Cg fill='%23f0d49a' fill-opacity='.05'%3E%3Crect x='3' y='2.4' width='12' height='1.2'/%3E%3Crect x='13' y='15.4' width='12' height='1.2'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 40px 26px repeat,
+    #090c12;
+}
+
+.alley-band--setts .alley-band__puddle { left: 22%; width: 110px; }
+
+/* 節の間③: 張り紙と著作の表示の間に渡した提灯の列 */
+.lantern-string {
+  position: absolute;
+  z-index: -1;
+  top: 28px;
+  left: 50%;
+  width: min(460px, 86%);
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.lantern-string__one { animation: bulb-waver 9s ease-in-out infinite; }
+.lantern-string__one:nth-of-type(2n) { animation-delay: 3.2s; }
+
+/* 一番下: 路地の突き当たり。字の下に板塀と石畳を敷き、塀の前に植木鉢とお稲荷さんを置く */
+footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
+
+.alley-end {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  height: 310px;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.alley-end__ground { right: 0; bottom: 0; left: 0; height: 40px; }
+
+/* 板塀（縦の板・横の貫・上の笠木）。上の端ほど夜の暗さに沈める */
+.alley-end__fence {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  left: 0;
+  height: 150px;
+  background:
+    linear-gradient(rgba(5, 7, 12, .55), rgba(5, 7, 12, .1) 45%, rgba(5, 7, 12, .45)),
+    linear-gradient(#0d0a07, #0d0a07) 0 36px / 100% 6px no-repeat,
+    linear-gradient(#0d0a07, #0d0a07) 0 108px / 100% 6px no-repeat,
+    repeating-linear-gradient(90deg, #0b0907 0 2px, #1a140f 2px 15px, #1e1711 15px 21px, #161210 21px 26px);
+  box-shadow: 0 -1px rgba(240, 212, 154, .08);
+}
+
+.alley-end__fence::before {
+  position: absolute;
+  top: -7px;
+  right: 0;
+  left: 0;
+  height: 8px;
+  content: "";
+  background: linear-gradient(#2b2219, #15100c);
+  box-shadow: 0 2px #070605;
+}
+
+/* 節の間④: 著作の表示と板塀の間の、大きな敷石の帯（灰茶・水たまり付き） */
+.alley-band--flag {
+  bottom: 232px;
+  height: 60px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='30' viewBox='0 0 96 30'%3E%3Cg stroke='%2306070a' stroke-width='2'%3E%3Crect x='1' y='1' width='40' height='13' rx='3' fill='%23191714'/%3E%3Crect x='43' y='1' width='52' height='13' rx='3' fill='%23151311'/%3E%3Crect x='-27' y='16' width='52' height='13' rx='3' fill='%23151311'/%3E%3Crect x='27' y='16' width='34' height='13' rx='3' fill='%231a1815'/%3E%3Crect x='63' y='16' width='52' height='13' rx='3' fill='%23171512'/%3E%3C/g%3E%3Cg fill='%23f0d49a' fill-opacity='.045'%3E%3Crect x='4' y='2.4' width='26' height='1.2'/%3E%3Crect x='30' y='17.4' width='22' height='1.2'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 96px 30px repeat,
+    #080806;
+}
+
+.alley-band--flag .alley-band__puddle { right: 30%; width: 180px; height: 18px; }
+
+/* 塀の向こうからのぞく木の影 */
+.alley-end__tree {
+  position: absolute;
+  bottom: 160px;
+  left: 3%;
+  width: 190px;
+  height: 80px;
+  background:
+    radial-gradient(circle at 18% 70%, #0c1511 0 17%, transparent 18%),
+    radial-gradient(circle at 32% 44%, #0e1813 0 20%, transparent 21%),
+    radial-gradient(circle at 50% 30%, #101b15 0 22%, transparent 23%),
+    radial-gradient(circle at 66% 48%, #0e1813 0 20%, transparent 21%),
+    radial-gradient(circle at 82% 70%, #0c1511 0 16%, transparent 17%),
+    radial-gradient(ellipse 46% 30% at 50% 82%, #0b130f 0 95%, transparent 100%);
+}
+
+.alley-end__pots {
+  position: absolute;
+  bottom: 20px;
+  left: clamp(16px, 7vw, 110px);
+  width: 150px;
+  height: auto;
+}
+
+/* お稲荷さん（祠・狛狐・鳥居）。字のない右の端に置く */
+.inari {
+  position: absolute;
+  right: clamp(16px, 7vw, 110px);
+  bottom: 20px;
+  width: 236px;
+  height: 162px;
+  transform-origin: right bottom;
+}
+
+.inari__glow {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 190px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 70%, rgba(240, 212, 154, .14), rgba(227, 154, 59, .045) 45%, transparent 70%);
+  transform: translateX(-50%);
+}
+
+.inari__hokora { position: absolute; bottom: 0; left: 79px; width: 78px; height: auto; }
+.inari__torii { position: absolute; bottom: 0; left: 43px; width: 150px; height: auto; }
+
+.inari__fox {
+  position: absolute;
+  bottom: 0;
+  width: 36px;
+  height: auto;
+  filter: brightness(.48) saturate(.8) drop-shadow(2px 3px 3px rgba(0, 0, 0, .5));
+}
+
+.inari__fox--left { left: 4px; }
+.inari__fox--right { right: 4px; }
+.inari__candle { animation: candle-flicker 3.4s ease-in-out infinite; }
+
+/* 少し狭い画面（2 列の店の脇が細い）では、壁の端に寄る小さな物だけ残す */
+@media (max-width: 1023px) {
+  .lit-window,
+  .lit-window__spill,
+  .back-door,
+  .gas-meter,
+  .alley-bicycle,
+  .alley-props--notice { display: none; }
+
+  .vent-fan { right: 0; width: 44px; }
+  .umbrella-stand { right: 2px; width: 32px; }
+}
 
 @media (min-width: 768px) {
-  .hero { padding: 104px 0 86px; }
-  .product-card { display: grid; grid-template-columns: minmax(260px, .85fr) minmax(0, 1.15fr); align-items: start; }
-  .fox-window { min-height: 0; }
-  .product-card__body { padding: 30px; }
+  .contact { margin-top: 240px; }
 }
 
-@media (max-width: 410px) {
-  .actions { display: grid; grid-template-columns: 1fr; }
+/* スマホ: 店の脇の物は出さず、頭上の電線と電球・石畳の水たまり・突き当たりだけを小さく残す */
+@media (max-width: 767px) {
+  .downpipe,
+  .pipe-ivy,
+  .vent-fan,
+  .umbrella-stand,
+  .alley-end__tree { display: none; }
+
+  .hanging-bulb__halo { width: 120px; height: 120px; }
+  .alley-puddle--door { right: 4%; width: 150px; height: 20px; }
+  .alley-puddle--small { left: 10%; width: 70px; }
+
+  .main-content { --alley-gap: 80px; }
+  .alley-props--shops { --ground-top: 44px; --feet: 74px; }
+  .contact { margin-top: 170px; }
+  footer { padding-top: 200px; padding-bottom: 250px; }
+  .alley-end { height: 220px; }
+  .alley-band--brick { height: 44px; }
+  .alley-band--setts { top: 110px; height: 42px; }
+  .alley-band--setts .alley-band__puddle { left: 12%; width: 80px; }
+  .alley-band--flag { bottom: 158px; height: 46px; }
+  .alley-band--flag .alley-band__puddle { right: 10%; width: 120px; }
+  .lantern-string { top: 18px; width: min(300px, 84%); }
+  .walking-cat { left: 50%; width: 62px; }
+  .alley-end__ground { height: 32px; }
+  .alley-end__fence { bottom: 22px; height: 104px; }
+  .alley-end__fence { background-position: 0 0, 0 26px, 0 74px, 0 0; }
+  .alley-end__pots { bottom: 16px; left: 16px; width: 100px; }
+  .inari { right: 12px; bottom: 16px; transform: scale(.66); }
+}
+.error-page { display: grid; min-height: 100vh; }
+.not-found {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  justify-items: start;
+  gap: 24px;
+  padding: 32px clamp(22px, 7vw, 76px);
+  border-right: 1px solid #171c28;
+  border-left: 1px solid #171c28;
+  background: radial-gradient(ellipse at 70% 45%, rgba(170, 190, 230, .055), transparent 42%);
+  box-shadow: inset 22px 0 35px rgba(0, 0, 0, .24), inset -22px 0 35px rgba(0, 0, 0, .24);
+}
+
+.not-found h1 { max-width: 14em; margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
+
+@keyframes light-appear { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lamp-ignite {
+  from { opacity: .2; filter: drop-shadow(0 0 0 transparent); }
+  to { opacity: 1; filter: drop-shadow(0 0 5px #ffe6a8) drop-shadow(0 0 13px rgba(255, 214, 130, .6)); }
+}
+
+@keyframes sign-ignite {
+  from { color: #796d5c; text-shadow: 0 0 1px rgba(227, 154, 59, .12); }
+  to { color: var(--shironeri); text-shadow: 0 0 4px var(--toushin), 0 0 11px rgba(227, 154, 59, .72), 0 0 20px rgba(227, 115, 42, .28); }
+}
+
+@keyframes broken-letter {
+  0%, 79%, 81.5%, 83%, 85.5%, 87%, 90%, 100% { opacity: 1; }
+  80%, 84%, 88.5% { opacity: .12; }
+}
+
+/* 下の路地の静かな動き: 裸電球のゆらぎ・換気扇の回転・水たまりの波紋・祠の灯り */
+@keyframes bulb-waver {
+  0%, 44%, 49%, 70%, 76%, 100% { opacity: 1; }
+  46% { opacity: .82; }
+  72% { opacity: .9; }
+  73.5% { opacity: .66; }
+}
+
+@keyframes vent-spin { to { transform: rotate(360deg); } }
+
+@keyframes puddle-ripple {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.15); }
+  14% { opacity: .9; }
+  70%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes candle-flicker {
+  0%, 100% { opacity: .55; }
+  30% { opacity: .46; }
+  55% { opacity: .6; }
+  80% { opacity: .5; }
+}
+
+.hanging-bulb__halo,
+.hanging-bulb__glass { animation: bulb-waver 6.2s ease-in-out infinite; }
+
+.bracket-lamp__halo,
+.bracket-lamp__glass { animation: bulb-waver 8.4s ease-in-out 2.1s infinite; }
+
+@media (max-width: 767px) {
+  /* 看板と壁の字・矢印の下に、小道具を置く地面の帯を空けておく。看板は小さく、傾きの下がりも小さい */
+  .hero__content { --wall-gap: 36px; --sign-drop: 8px; padding: 0 0 290px; }
+  .sign-rig { padding-top: 40px; }
+  .sign-rig__fixed-chain { left: 30px; height: 33px; }
+  .sign-rig__loose-chain { right: 30px; height: 18px; }
+  .signboard { padding: 12px 18px; transform-origin: 31px 0; }
+
+  /* 小さい画面では壁の字を少し小さく */
+  .wall-text { font-size: 1.0625rem; }
+  .storefront__link:focus-visible { outline-offset: 8px; }
+
+  /* 街灯は矢印の下の地面に、自販機の左に立てる */
+  .streetlight--hero { --lamp-w: 96px; top: auto; right: 60px; bottom: 30px; height: 236px; width: var(--lamp-w); }
+  .streetlight--hero .streetlight__cone { left: 78%; width: 400%; transform: translateX(-50%); }
+
+  /* 配管は地面の帯の高さだけ見せる */
+  .pipework { top: auto; bottom: 30px; height: 220px; overflow: hidden; }
+  .air-conditioner { bottom: 24px; }
+  .vending-machine { right: -2px; bottom: 20px; }
+  .puddle { right: 2%; bottom: 13px; }
+
+  /* 読む物の後ろに小道具を置かない。小さい画面では一部の小道具を消す */
+  .power-meter,
+  .poster-scraps,
+  .trash-bin,
+  .beer-crates,
+  .plant-pot { display: none; }
+
+}
+
+@media (min-width: 768px) {
+  .pipework { left: 4px; }
+  .air-conditioner { left: 9px; }
+  .trash-bin { left: calc(clamp(108px, 19vw, 180px) + 13px); }
+  .product-list {
+    grid-template-columns: repeat(2, minmax(0, 300px));
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-list {
+    grid-template-columns: repeat(2, minmax(0, 300px));
+    justify-content: center;
+    align-items: stretch;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 479px) {
+  .site-nav__contact { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .streetlight__bulb,
+  .streetlight__halo,
+  .streetlight__cone,
+  .streetlight__pool,
+  .signboard h1,
+  .signboard h1 .signboard__flicker { animation: none; }
+
+  .streetlight__bulb,
+  .streetlight__halo,
+  .streetlight__cone,
+  .streetlight__pool,
+  .signboard h1 .signboard__flicker { opacity: 1; }
+
+  /* 拡大しない。シャッターは動きなしにすぐ開く */
+  .storefront__front,
+  .shutter,
+  .storefront__interior::after { transition: none; }
+
+  .storefront:hover .storefront__front,
+  .storefront:focus-within .storefront__front { transform: none; }
+
+  /* 下の路地の電球・換気扇・波紋・祠の灯り・提灯は止める */
+  .hanging-bulb__halo,
+  .hanging-bulb__glass,
+  .bracket-lamp__halo,
+  .bracket-lamp__glass,
+  .vent-fan__blades,
+  .alley-puddle__ripple,
+  .inari__candle,
+  .lantern-string__one { animation: none; }
+
+  .alley-puddle__ripple { display: none; }
+
+  /* 矢印は下へ動かさない */
+  .wall-arrow__mark { transition: none; }
+
+  .wall-arrow:hover .wall-arrow__mark,
+  .wall-arrow:focus-visible .wall-arrow__mark { transform: none; }
+}
+
+/* 触る画面では拡大せず、シャッターは半分のまま */
+@media (hover: none) {
+  .storefront:hover .storefront__front,
+  .storefront:focus-within .storefront__front { transform: none; }
+
+  .storefront:hover .shutter,
+  .storefront:focus-within .shutter { transform: translateY(-50%); }
 }

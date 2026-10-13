@@ -12,68 +12,760 @@
   <meta property="og:image" content="https://ys-0311san.github.io/images/ogp.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@roziura_shop">
-  <meta name="theme-color" content="#0f1220">
+  <meta name="theme-color" content="#070a12">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&amp;family=Zen+Old+Mincho:wght@700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Dela+Gothic+One&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav class="site-nav" aria-label="サイトの案内">
+    <div class="site-nav__inner">
+      <a class="site-nav__name" href="index.html">ドコカノロジウラ</a>
+      <ul class="site-nav__links">
+        <li><a href="index.html#products-heading">商品</a></li>
+        <li class="site-nav__contact"><a href="index.html#contact-heading">お問い合わせ</a></li>
+        <li><a href="https://yukisandosukebe.booth.pm/" target="_blank" rel="noopener">BOOTH</a></li>
+      </ul>
+    </div>
+  </nav>
   <header class="hero">
+    <div class="overhead" aria-hidden="true">
+      <span class="alley-depth" aria-hidden="true"></span>
+    </div>
     <div class="container hero__content">
-      <h1>ドコカノロジウラ</h1>
-      <p class="lead">VRChat のアバターギミックを作っている、小さなお店です。</p>
-      <div class="actions">
-        <a class="button" href="https://yukisandosukebe.booth.pm/" target="_blank" rel="noopener">BOOTH のショップ</a>
-        <a class="button button--quiet" href="https://x.com/roziura_shop" target="_blank" rel="noopener">X（@roziura_shop）</a>
+      <!-- 壁を這う配管（太い管と細い管・継ぎ手・留め金具） -->
+      <div class="pipework" aria-hidden="true">
+        <svg viewBox="0 0 64 340" aria-hidden="true">
+          <defs>
+            <linearGradient id="pipe-v" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#0b0e15" />
+              <stop offset=".55" stop-color="#1c222d" />
+              <stop offset=".8" stop-color="#363e4b" />
+              <stop offset="1" stop-color="#10141b" />
+            </linearGradient>
+            <linearGradient id="pipe-h" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#363e4b" />
+              <stop offset=".4" stop-color="#1c222d" />
+              <stop offset="1" stop-color="#0b0e15" />
+            </linearGradient>
+          </defs>
+          <rect x="4" y="40" width="4" height="300" fill="#000" opacity=".3" />
+          <rect x="31" y="78" width="3" height="262" fill="#000" opacity=".3" />
+          <rect x="8" y="40" width="12" height="300" fill="url(#pipe-v)" />
+          <rect x="28" y="20" width="30" height="12" fill="url(#pipe-h)" />
+          <path d="M8 42V40Q8 20 28 20H30V32H28Q20 32 20 40V42Z" fill="#262c36" />
+          <rect x="6" y="40" width="16" height="5" rx="1" fill="#313844" />
+          <rect x="27" y="18" width="5" height="16" rx="1" fill="#313844" />
+          <rect x="57" y="15" width="5" height="22" rx="1" fill="#2b313b" />
+          <rect x="34.5" y="78" width="7" height="262" fill="url(#pipe-v)" />
+          <rect x="48" y="62" width="10" height="7" fill="url(#pipe-h)" />
+          <path d="M34.5 78V74Q34.5 62 46.5 62H49V69H46.5Q41.5 69 41.5 74V78Z" fill="#262c35" />
+          <rect x="33" y="76" width="10" height="4" rx="1" fill="#313844" />
+          <rect x="47" y="60.5" width="4" height="10" rx="1" fill="#313844" />
+          <rect x="57" y="58.5" width="5" height="14" rx="1" fill="#2b313b" />
+          <rect x="6" y="168" width="16" height="7" rx="1.5" fill="#2e3541" />
+          <rect x="33" y="214" width="10" height="5" rx="1" fill="#2e3541" />
+          <rect x="3" y="120" width="44" height="5" rx="1" fill="#3a414c" />
+          <circle cx="4.8" cy="122.5" r="1.4" fill="#0d1016" />
+          <circle cx="27.3" cy="122.5" r="1.4" fill="#0d1016" />
+          <circle cx="45.2" cy="122.5" r="1.4" fill="#0d1016" />
+          <rect x="3" y="272" width="44" height="5" rx="1" fill="#3a414c" />
+          <circle cx="4.8" cy="274.5" r="1.4" fill="#0d1016" />
+          <circle cx="27.3" cy="274.5" r="1.4" fill="#0d1016" />
+          <circle cx="45.2" cy="274.5" r="1.4" fill="#0d1016" />
+          <rect x="17" y="40" width="1.4" height="300" fill="#f0d49a" opacity=".2" />
+          <rect x="39.6" y="78" width="1" height="262" fill="#f0d49a" opacity=".2" />
+          <rect x="28" y="20.6" width="30" height="1.2" fill="#f0d49a" opacity=".16" />
+          <rect x="48" y="62.4" width="10" height="1" fill="#f0d49a" opacity=".16" />
+        </svg>
+      </div>
+
+      <!-- 電気のメーター（丸い窓のある小箱） -->
+      <svg class="power-meter" viewBox="0 0 44 72" aria-hidden="true">
+        <defs>
+          <linearGradient id="meter-body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#454c57" />
+            <stop offset=".2" stop-color="#323842" />
+            <stop offset="1" stop-color="#1e2229" />
+          </linearGradient>
+          <linearGradient id="meter-conduit" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#14171c" />
+            <stop offset=".7" stop-color="#363c46" />
+            <stop offset="1" stop-color="#181b21" />
+          </linearGradient>
+          <radialGradient id="meter-glass" cx=".4" cy=".35" r=".7">
+            <stop offset="0" stop-color="#2a323d" />
+            <stop offset="1" stop-color="#0b0e13" />
+          </radialGradient>
+        </defs>
+        <rect x="17" y="52" width="8" height="20" fill="url(#meter-conduit)" />
+        <rect x="15" y="62" width="12" height="3" rx="1" fill="#3a404a" />
+        <rect x="3" y="4" width="40" height="52" rx="3" fill="#000" opacity=".4" />
+        <rect x="1" y="1" width="40" height="52" rx="3" fill="url(#meter-body)" stroke="#101318" />
+        <path d="M4 1.8H38" stroke="#6d7684" stroke-width="1" opacity=".75" />
+        <path d="M40.3 5V49" stroke="#f0d49a" stroke-width=".8" opacity=".22" />
+        <circle cx="5" cy="5" r="1.2" fill="#1a1d23" />
+        <circle cx="37" cy="5" r="1.2" fill="#1a1d23" />
+        <circle cx="21" cy="21" r="12" fill="url(#meter-glass)" stroke="#5c6470" stroke-width="1.5" />
+        <rect x="14" y="14" width="14" height="4" rx=".6" fill="#07090c" />
+        <path d="M15 16H27" stroke="#3c4754" stroke-width="2" stroke-dasharray="2 1" />
+        <rect x="12" y="24" width="18" height="2" rx="1" fill="#a65a3a" opacity=".8" />
+        <path d="M12.5 17A10 10 0 0 1 21.5 11.5" fill="none" stroke="#cfe3f0" stroke-width="1.1" opacity=".35" />
+        <rect x="8" y="38" width="26" height="10" rx="1" fill="#181c22" />
+        <circle cx="12.5" cy="43" r="1.6" fill="#4d5560" />
+        <circle cx="21" cy="43" r="1.6" fill="#4d5560" />
+        <circle cx="29.5" cy="43" r="1.6" fill="#4d5560" />
+        <rect x="19" y="49.5" width="4" height="3" fill="#8a3a2a" opacity=".7" />
+      </svg>
+
+      <!-- はがれかけの貼り紙の跡（文字なし） -->
+      <svg class="poster-scraps" viewBox="0 0 96 96" aria-hidden="true">
+        <rect x="22" y="64" width="46" height="22" fill="none" stroke="#1d222c" stroke-dasharray="3 2" opacity=".7" />
+        <path d="M6 8 40 4 42 18 37 21 41 27 33 33 36 40 8 44Z" fill="#6f6a5e" opacity=".55" />
+        <path d="M40 4 42 18 37 21 41 27 33 33 36 40" fill="none" stroke="#bdb5a1" stroke-width=".7" opacity=".3" />
+        <path d="M8 44 36 40 34 46 10 49Z" fill="#000" opacity=".25" />
+        <rect x="15" y="1" width="14" height="6" fill="#cfc6a8" opacity=".24" transform="rotate(-6 22 4)" />
+        <rect x="30" y="38" width="11" height="5" fill="#cfc6a8" opacity=".2" transform="rotate(8 35 40)" />
+        <path d="M52 30 80 26 84 36 78 40 83 46 76 52 55 55 58 46 53 41Z" fill="#5f5a50" opacity=".5" />
+        <path d="M80 26 84 36 78 40 83 46 76 52" fill="none" stroke="#bdb5a1" stroke-width=".7" opacity=".28" />
+        <rect x="58" y="23" width="12" height="5" fill="#cfc6a8" opacity=".2" transform="rotate(-4 64 25)" />
+        <path d="M64 68 82 66 80 76 73 74 68 80Z" fill="#7a7466" opacity=".45" />
+        <rect x="70" y="62" width="13" height="5" fill="#cfc6a8" opacity=".2" transform="rotate(-12 76 64)" />
+        <rect x="18" y="62" width="12" height="5" fill="#cfc6a8" opacity=".15" transform="rotate(10 24 64)" />
+        <rect x="20" y="84" width="10" height="4" fill="#cfc6a8" opacity=".12" transform="rotate(-8 25 86)" />
+        <circle cx="10" cy="11" r=".9" fill="#9aa1ab" opacity=".6" />
+        <circle cx="56" cy="34" r=".9" fill="#9aa1ab" opacity=".5" />
+      </svg>
+
+      <!-- 室外機（配管・格子・羽根・錆）と、その上に座る猫 -->
+      <div class="air-conditioner" aria-hidden="true">
+        <svg viewBox="0 0 210 214" aria-hidden="true">
+          <defs>
+            <linearGradient id="ac-case" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#363d4a" />
+              <stop offset=".16" stop-color="#252b35" />
+              <stop offset="1" stop-color="#13171e" />
+            </linearGradient>
+            <linearGradient id="ac-pipe" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#121419" />
+              <stop offset=".55" stop-color="#2a2d33" />
+              <stop offset=".82" stop-color="#40444b" />
+              <stop offset="1" stop-color="#17191e" />
+            </linearGradient>
+            <linearGradient id="ac-pipe-h" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#40444b" />
+              <stop offset=".45" stop-color="#2a2d33" />
+              <stop offset="1" stop-color="#111317" />
+            </linearGradient>
+            <radialGradient id="ac-fan" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#171c25" />
+              <stop offset="1" stop-color="#06080c" />
+            </radialGradient>
+          </defs>
+          <ellipse cx="118" cy="209" rx="92" ry="4.5" fill="#000" opacity=".45" />
+          <rect x="9" y="0" width="13" height="121" fill="url(#ac-pipe)" />
+          <path d="M9 120V126Q9 136 19 136H32V123H22V120Z" fill="url(#ac-pipe-h)" />
+          <path d="M9 14l13 5M9 38l13 5M9 62l13 5M9 86l13 5M9 108l13 5" stroke="#121418" stroke-width="1.4" />
+          <rect x="18.6" y="0" width="1.4" height="121" fill="#f0d49a" opacity=".2" />
+          <rect x="4" y="0" width="23" height="7" rx="1" fill="#2b3038" />
+          <path d="M4.5 6.4H26.5" stroke="#0d0f13" stroke-width="1" />
+          <rect x="5" y="28" width="21" height="5" rx="1" fill="#3b4049" />
+          <circle cx="7.5" cy="30.5" r="1.3" fill="#0f1115" />
+          <circle cx="23.5" cy="30.5" r="1.3" fill="#0f1115" />
+          <rect x="5" y="78" width="21" height="5" rx="1" fill="#3b4049" />
+          <circle cx="7.5" cy="80.5" r="1.3" fill="#0f1115" />
+          <circle cx="23.5" cy="80.5" r="1.3" fill="#0f1115" />
+          <rect x="52" y="194" width="16" height="12" fill="#101318" />
+          <rect x="166" y="194" width="16" height="12" fill="#101318" />
+          <rect x="46" y="204" width="28" height="4" rx="1" fill="#1e222a" />
+          <rect x="160" y="204" width="28" height="4" rx="1" fill="#1e222a" />
+          <rect x="30" y="96" width="176" height="100" rx="4" fill="url(#ac-case)" stroke="#0d1016" stroke-width="1.5" />
+          <path d="M34 96.9H202" stroke="#5d6676" stroke-width="1.2" opacity=".8" />
+          <path d="M205 101V191" stroke="#f0d49a" stroke-width="1" opacity=".24" />
+          <rect x="31" y="186" width="174" height="9" fill="#4a2f1e" opacity=".22" />
+          <path d="M48 172v21M55 180v14M118 176v18M141 168v26M183 178v16M190 184v10" stroke="#4a2f1e" stroke-width="1.6" stroke-linecap="round" opacity=".55" />
+          <circle cx="92" cy="146" r="43" fill="#0c0f14" stroke="#3a414d" stroke-width="2" />
+          <circle cx="92" cy="146" r="39" fill="url(#ac-fan)" />
+          <g fill="#1d232c" stroke="#2f3743" stroke-width=".8">
+            <path d="M92 146C95 131 104 121 117 121C114 131 105 140 92 146Z" />
+            <path d="M92 146C95 131 104 121 117 121C114 131 105 140 92 146Z" transform="rotate(90 92 146)" />
+            <path d="M92 146C95 131 104 121 117 121C114 131 105 140 92 146Z" transform="rotate(180 92 146)" />
+            <path d="M92 146C95 131 104 121 117 121C114 131 105 140 92 146Z" transform="rotate(270 92 146)" />
+          </g>
+          <g fill="none" stroke="#3b4350" stroke-width="1.4">
+            <circle cx="92" cy="146" r="39" />
+            <circle cx="92" cy="146" r="28" />
+            <circle cx="92" cy="146" r="17" />
+            <path d="M92 107V185M53 146H131M64.4 118.4 119.6 173.6M119.6 118.4 64.4 173.6" />
+          </g>
+          <circle cx="92" cy="146" r="7" fill="#262c36" stroke="#3e4653" stroke-width="1.5" />
+          <path d="M150 112V180M157 112V180M164 112V180M171 112V180M178 112V180M185 112V180M192 112V180" stroke="#0a0d12" stroke-width="3.2" stroke-linecap="round" />
+          <path d="M151.8 113V179M158.8 113V179M165.8 113V179M172.8 113V179M179.8 113V179M186.8 113V179M193.8 113V179" stroke="#3a414d" stroke-width=".8" />
+          <g fill="#434a57" stroke="#0b0d11" stroke-width=".8">
+            <circle cx="37" cy="103" r="2.4" />
+            <circle cx="199" cy="103" r="2.4" />
+            <circle cx="37" cy="189" r="2.4" />
+            <circle cx="199" cy="189" r="2.4" />
+          </g>
+          <image class="ac-cat" href="images/alley-cat.webp" x="62" y="40" width="84" height="60.2" />
+        </svg>
+      </div>
+
+      <!-- 青いポリバケツのゴミ箱 -->
+      <svg class="trash-bin" viewBox="0 0 60 84" aria-hidden="true">
+        <defs>
+          <linearGradient id="bin-body" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#0d1c30" />
+            <stop offset=".55" stop-color="#173257" />
+            <stop offset=".85" stop-color="#21436d" />
+            <stop offset="1" stop-color="#112540" />
+          </linearGradient>
+          <linearGradient id="bin-lid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2b5182" />
+            <stop offset="1" stop-color="#14294a" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="30" cy="81" rx="26" ry="3" fill="#000" opacity=".45" />
+        <rect x="5" y="28" width="6" height="4" rx="1" fill="#183559" />
+        <rect x="49" y="28" width="6" height="4" rx="1" fill="#183559" />
+        <path d="M10 22H50L46 78Q46 80 44 80H16Q14 80 14 78Z" fill="url(#bin-body)" />
+        <path d="M19 27 20 75M26 27V75M34 27V75M41 27 40 75" stroke="#0c1b30" stroke-width="2" />
+        <path d="M20.2 27 21.2 75M27.2 27V75M35.2 27V75M42.2 27 41.2 75" stroke="#2c5586" stroke-width=".6" opacity=".7" />
+        <rect x="14" y="74" width="32" height="4" fill="#0b1829" />
+        <rect x="9" y="22" width="42" height="3" fill="#1b3a61" />
+        <path d="M49.4 25 45.6 77" stroke="#f0d49a" stroke-width=".9" opacity=".28" />
+        <path d="M7 17Q30 12 53 17V23H7Z" fill="url(#bin-lid)" />
+        <path d="M8 17.5Q30 12.5 52 17.5" fill="none" stroke="#6d9bd0" stroke-width="1" opacity=".5" />
+        <path d="M24 14Q30 8 36 14" fill="none" stroke="#12284a" stroke-width="3" stroke-linecap="round" />
+        <path d="M25 13Q30 9 35 13" fill="none" stroke="#5f8cc2" stroke-width=".7" opacity=".5" />
+        <path d="M52.5 17.5V22.5" stroke="#f0d49a" stroke-width=".9" opacity=".3" />
+      </svg>
+
+      <div class="sign-rig">
+        <span class="sign-rig__arm" aria-hidden="true"></span>
+        <span class="sign-rig__fixed-chain" aria-hidden="true"></span>
+        <span class="sign-rig__loose-chain" aria-hidden="true"></span>
+        <div class="signboard">
+          <h1><span>ド</span><span>コ</span><span>カ</span><span>ノ</span><span class="signboard__dark">ロ</span><span>ジ</span><span class="signboard__flicker">ウ</span><span>ラ</span></h1>
+          <span class="signboard__crack signboard__crack--one" aria-hidden="true"></span>
+          <span class="signboard__crack signboard__crack--two" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- 街灯（灯具の部分は縦横比を保ち、柱だけを縦に伸ばす） -->
+      <div class="streetlight streetlight--hero" aria-hidden="true">
+        <span class="streetlight__cone"></span>
+        <svg class="streetlight__pole" viewBox="0 0 120 300" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="sl-post" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#101318" />
+              <stop offset=".5" stop-color="#1d2129" />
+              <stop offset=".78" stop-color="#2d333d" />
+              <stop offset="1" stop-color="#14171d" />
+            </linearGradient>
+          </defs>
+          <rect x="26.5" y="0" width="7" height="300" fill="url(#sl-post)" />
+          <rect x="32" y="0" width="1" height="280" fill="#f0d49a" opacity=".28" />
+          <rect x="25" y="112" width="10" height="4" fill="#262b34" />
+          <rect x="25" y="112" width="10" height="1" fill="#4a515d" />
+          <rect x="25.5" y="206" width="9" height="3" fill="#232831" />
+          <rect x="23.5" y="279" width="13" height="6" fill="#262b34" />
+          <path d="M21 300 23 285H37L39 300Z" fill="#1a1e25" />
+          <path d="M36.6 285 38.6 300" stroke="#f0d49a" stroke-width=".8" opacity=".22" />
+        </svg>
+        <svg class="streetlight__head" viewBox="0 0 120 90" aria-hidden="true">
+          <defs>
+            <radialGradient id="sl-halo" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#ffecbe" stop-opacity=".75" />
+              <stop offset=".35" stop-color="#ffd68c" stop-opacity=".25" />
+              <stop offset="1" stop-color="#ffd68c" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="sl-shade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3a404b" />
+              <stop offset="1" stop-color="#1b1f27" />
+            </linearGradient>
+            <linearGradient id="sl-inner" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff3cf" />
+              <stop offset="1" stop-color="#e8c27c" />
+            </linearGradient>
+          </defs>
+          <path class="streetlight__post" d="M30 90V72Q30 30 72 30H88" />
+          <path d="M33.6 90V72Q33.6 33.6 72 33.6H86" fill="none" stroke="#f0d49a" stroke-width="1" opacity=".22" />
+          <path d="M30 70Q34 48 56 36" fill="none" stroke="#1b1f27" stroke-width="2.5" />
+          <circle cx="40" cy="52" r="3.5" fill="none" stroke="#1b1f27" stroke-width="1.6" />
+          <rect x="84" y="26" width="8" height="8" rx="1" fill="#2a2f38" />
+          <circle class="streetlight__halo" cx="93" cy="48" r="34" fill="url(#sl-halo)" />
+          <path d="M86 22H100V27H86Z" fill="#2d323c" />
+          <path class="streetlight__shade" d="M80 27H106L116 45H70Z" fill="url(#sl-shade)" />
+          <path d="M106 27 116 45" stroke="#4d5462" stroke-width=".8" />
+          <path d="M70 45H116L114.5 49H71.5Z" fill="#3b414c" />
+          <ellipse cx="93" cy="47.5" rx="20" ry="3.2" fill="url(#sl-inner)" opacity=".9" />
+          <ellipse class="streetlight__bulb" cx="93" cy="48" rx="10" ry="4" />
+        </svg>
+        <span class="streetlight__pool"></span>
+      </div>
+
+      <!-- 積んだビールケース 2 段 -->
+      <svg class="beer-crates" viewBox="0 0 84 78" aria-hidden="true">
+        <defs>
+          <linearGradient id="crate" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7d6a2a" />
+            <stop offset="1" stop-color="#4f4118" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="42" cy="76" rx="40" ry="2.5" fill="#000" opacity=".45" />
+        <rect x="2" y="40" width="78" height="36" rx="2" fill="url(#crate)" />
+        <rect x="2" y="40" width="78" height="3" fill="#8f7a32" />
+        <path d="M8 52H76M8 63H76" stroke="#231c08" stroke-width="6" stroke-dasharray="7 3" />
+        <rect x="31" y="45" width="20" height="4" rx="2" fill="#1d1707" />
+        <rect x="2" y="40" width="5" height="36" fill="#6a5822" />
+        <rect x="75" y="40" width="5" height="36" fill="#6a5822" />
+        <path d="M79.4 43V75" stroke="#f0d49a" stroke-width=".9" opacity=".25" />
+        <rect x="2" y="37" width="78" height="3" fill="#000" opacity=".35" />
+        <rect x="6" y="4" width="72" height="34" rx="2" fill="url(#crate)" />
+        <rect x="6" y="4" width="72" height="3" fill="#94803a" />
+        <path d="M12 16H72M12 27H72" stroke="#231c08" stroke-width="6" stroke-dasharray="6.5 3" />
+        <rect x="32" y="9" width="20" height="4" rx="2" fill="#1d1707" />
+        <rect x="6" y="4" width="5" height="34" fill="#6a5822" />
+        <rect x="73" y="4" width="5" height="34" fill="#6a5822" />
+        <path d="M7 4.6H77" stroke="#e6cf7a" stroke-width=".8" opacity=".4" />
+        <path d="M77.4 7V37" stroke="#f0d49a" stroke-width=".9" opacity=".25" />
+      </svg>
+
+      <!-- 自動販売機（光る見本の窓・ボタン・硬貨の口・取り出し口） -->
+      <div class="vending-machine" aria-hidden="true">
+        <svg viewBox="0 0 84 210" aria-hidden="true">
+          <defs>
+            <linearGradient id="vm-body" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#4d535b" />
+              <stop offset=".6" stop-color="#666d76" />
+              <stop offset="1" stop-color="#3f444c" />
+            </linearGradient>
+            <linearGradient id="vm-win" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e9f2f8" />
+              <stop offset="1" stop-color="#b3c6d3" />
+            </linearGradient>
+            <symbol id="vm-can" viewBox="0 0 6 13">
+              <rect y="2" width="6" height="11" rx="1.2" />
+              <rect x="1" y="3.5" width="1" height="8" fill="#fff" opacity=".4" />
+            </symbol>
+            <symbol id="vm-bottle" viewBox="0 0 6 13">
+              <path d="M2 0H4V2L5.6 4V13H.4V4L2 2Z" />
+              <rect x="1.2" y="5" width=".9" height="7" fill="#fff" opacity=".45" />
+            </symbol>
+          </defs>
+          <ellipse cx="44" cy="207" rx="40" ry="3" fill="#000" opacity=".45" />
+          <path d="M74 6 82 9V204L74 206Z" fill="#2a2f36" />
+          <rect x="2" y="4" width="72" height="202" rx="2" fill="url(#vm-body)" stroke="#23272e" />
+          <rect x="2" y="4" width="72" height="7" rx="2" fill="#3b4048" />
+          <path d="M4 4.6H72" stroke="#aeb8c2" stroke-width=".8" opacity=".5" />
+          <rect x="4" y="11" width="68" height="90" rx="2" fill="#cfe3f0" opacity=".2" />
+          <rect x="7" y="14" width="62" height="84" fill="url(#vm-win)" />
+          <path d="M10 17H67M10 43H67M10 69H67" stroke="#ffffff" stroke-width="1" stroke-dasharray="6 4" opacity=".8" />
+          <use href="#vm-can" x="10" y="19" width="6" height="13" fill="#b8433a" />
+          <use href="#vm-bottle" x="20" y="19" width="6" height="13" fill="#3d6fb0" />
+          <use href="#vm-can" x="30" y="19" width="6" height="13" fill="#4f9a5e" />
+          <use href="#vm-can" x="40" y="19" width="6" height="13" fill="#d6b13a" />
+          <use href="#vm-bottle" x="50" y="19" width="6" height="13" fill="#e4eaee" />
+          <use href="#vm-can" x="60" y="19" width="6" height="13" fill="#b8433a" />
+          <use href="#vm-bottle" x="10" y="45" width="6" height="13" fill="#4f9a5e" />
+          <use href="#vm-can" x="20" y="45" width="6" height="13" fill="#d6b13a" />
+          <use href="#vm-can" x="30" y="45" width="6" height="13" fill="#3d6fb0" />
+          <use href="#vm-bottle" x="40" y="45" width="6" height="13" fill="#e4eaee" />
+          <use href="#vm-can" x="50" y="45" width="6" height="13" fill="#b8433a" />
+          <use href="#vm-bottle" x="60" y="45" width="6" height="13" fill="#4f9a5e" />
+          <use href="#vm-can" x="10" y="71" width="6" height="13" fill="#3d6fb0" />
+          <use href="#vm-can" x="20" y="71" width="6" height="13" fill="#e4eaee" />
+          <use href="#vm-bottle" x="30" y="71" width="6" height="13" fill="#b8433a" />
+          <use href="#vm-can" x="40" y="71" width="6" height="13" fill="#4f9a5e" />
+          <use href="#vm-bottle" x="50" y="71" width="6" height="13" fill="#d6b13a" />
+          <use href="#vm-can" x="60" y="71" width="6" height="13" fill="#3d6fb0" />
+          <rect x="7" y="32" width="62" height="3" fill="#8193a1" />
+          <rect x="7" y="58" width="62" height="3" fill="#8193a1" />
+          <rect x="7" y="84" width="62" height="3" fill="#8193a1" />
+          <path d="M13 38.5H63.1M13 64.5H63.1M13 90.5H63.1" stroke="#2f4a63" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0 10" />
+          <rect x="8" y="106" width="38" height="32" rx="1" fill="#30353c" />
+          <rect x="52" y="106" width="16" height="32" rx="1" fill="#1d2228" stroke="#0f1216" stroke-width=".8" />
+          <rect x="58" y="110" width="4" height="11" rx="1" fill="#06080b" stroke="#6f7a85" stroke-width=".6" />
+          <rect x="56" y="126" width="8" height="6" rx="1" fill="#0a0d11" stroke="#59636e" stroke-width=".6" />
+          <rect x="10" y="168" width="56" height="20" rx="2" fill="#07090d" stroke="#2b3038" />
+          <path d="M12 170.5H64" stroke="#6b757f" stroke-width="1" opacity=".6" />
+          <rect x="2" y="196" width="72" height="10" fill="#22262c" />
+          <rect x="2" y="4" width="3" height="202" fill="#000" opacity=".25" />
+          <path d="M73.2 12V196" stroke="#f0d49a" stroke-width=".9" opacity=".22" />
+        </svg>
+      </div>
+      <span class="vending-glow" aria-hidden="true"></span>
+      <span class="puddle" aria-hidden="true"></span>
+
+      <!-- 壁の字の左下の地面の植木鉢 -->
+      <svg class="plant-pot" viewBox="0 0 48 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="pot" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#4a2818" />
+            <stop offset=".6" stop-color="#6e3d26" />
+            <stop offset="1" stop-color="#3f2214" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="24" cy="61" rx="17" ry="2.5" fill="#000" opacity=".45" />
+        <g fill="none" stroke-linecap="round">
+          <path d="M24 34C22 22 16 14 10 8" stroke="#3e623b" stroke-width="1.8" />
+          <path d="M24 34C25 20 27 10 31 2" stroke="#4d7848" stroke-width="1.8" />
+          <path d="M24 34C28 24 34 18 41 14" stroke="#3e623b" stroke-width="1.6" />
+          <path d="M24 34C20 26 14 24 6 22" stroke="#355432" stroke-width="1.6" />
+          <path d="M24 34C30 28 38 28 45 30" stroke="#4d7848" stroke-width="1.5" />
+          <path d="M24 34C23 26 21 20 18 15" stroke="#5a8a53" stroke-width="1.2" />
+          <path d="M31 2.5C30 6 29 9 28 12" stroke="#f0d49a" stroke-width=".6" opacity=".35" />
+        </g>
+        <ellipse cx="24" cy="35" rx="13" ry="2.5" fill="#1c120c" />
+        <path d="M10 36H38L34 60H14Z" fill="url(#pot)" />
+        <rect x="8" y="32" width="32" height="6" rx="1" fill="#82492b" />
+        <path d="M9 32.6H39" stroke="#e0a578" stroke-width=".8" opacity=".35" />
+        <path d="M37.4 38 33.8 59.5" stroke="#f0d49a" stroke-width=".8" opacity=".25" />
+        <path d="M18 44 21 49 19 54" fill="none" stroke="#2f190f" stroke-width=".7" opacity=".7" />
+      </svg>
+
+      <div class="hero__intro">
+        <p class="lead wall-text">VRChat のアバターギミックを作っている、小さなお店です。</p>
+        <ul class="wall-links">
+          <li><a class="wall-link" href="https://yukisandosukebe.booth.pm/" target="_blank" rel="noopener">BOOTH のショップ</a></li>
+          <li><a class="wall-link" href="https://x.com/roziura_shop" target="_blank" rel="noopener">X（@roziura_shop）</a></li>
+        </ul>
+        <a class="wall-arrow" href="#products-heading">
+          <svg class="wall-arrow__mark" viewBox="0 0 60 90" aria-hidden="true">
+            <path d="M21.6 3.6C25.6 2.3 34.4 2.6 38.8 3.8L39.4 19.6 38.6 35.8 39.1 46.4C44.2 46 50.6 45.6 57.4 46.6 54.4 53 46.8 61.8 39.4 70.4 36.2 74.2 33 78 30.4 81.2 27.6 77.8 23.6 72.8 19.8 68.2 13.4 60.8 7 53.4 2.8 46.8 8.6 45.9 15.6 46.3 21 46.7L21.7 34.2 20.8 18.1Z" fill="currentColor" />
+            <path d="M29.1 79.2C29.4 82.6 28.9 85.4 29.4 87.2 30.5 88.5 31.6 87.4 31.6 85.6 31.5 83 31.7 80.6 31.6 78.4Z" fill="currentColor" />
+            <path d="M9.9 54.2C10.3 58 9.8 61.6 10.3 63.6 11.1 64.8 12.3 64 12.2 62.4 12.1 60.2 12.4 58 12.6 56.2Z" fill="currentColor" />
+            <g fill="none" stroke="#0b0f18" stroke-linecap="round" opacity=".38">
+              <path d="M27.2 6.5 27.6 29.5" stroke-width=".9" />
+              <path d="M33.4 11 33 24.5" stroke-width=".7" />
+              <path d="M30.6 38.5 30.9 46" stroke-width=".6" />
+              <path d="M16.2 53.4 25.8 63.6" stroke-width=".8" />
+              <path d="M41.2 54.6 35.6 61" stroke-width=".6" />
+            </g>
+          </svg>
+          <span>商品を見る</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section aria-labelledby="products-heading">
+  <main class="container main-content">
+    <!-- 路地の頭上: 斜めに渡る電線と、そこから吊るした裸電球 -->
+    <div class="alley-props alley-props--overhead" aria-hidden="true">
+      <svg class="alley-wires" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke-linecap="round">
+          <path d="M0 18Q600 120 1200 40" stroke="#030407" stroke-width="2.2" vector-effect="non-scaling-stroke" />
+          <path d="M0 30Q600 136 1200 55" stroke="#030407" stroke-width="1.8" vector-effect="non-scaling-stroke" />
+          <path d="M0 112Q520 52 1200 6" stroke="#030407" stroke-width="1.6" vector-effect="non-scaling-stroke" />
+          <path d="M0 17Q600 119 1200 39" stroke="#3a414c" stroke-width=".8" opacity=".55" vector-effect="non-scaling-stroke" />
+          <path d="M0 111Q520 51 1200 5" stroke="#3a414c" stroke-width=".7" opacity=".45" vector-effect="non-scaling-stroke" />
+        </g>
+      </svg>
+      <span class="hanging-bulb">
+        <span class="hanging-bulb__halo"></span>
+        <svg viewBox="0 0 30 80" aria-hidden="true">
+          <path d="M15 0V46" stroke="#05070b" stroke-width="1.6" />
+          <path d="M15.6 2V45" stroke="#f0d49a" stroke-width=".5" opacity=".25" />
+          <rect x="10" y="44" width="10" height="10" rx="1.5" fill="#1b1f27" />
+          <path d="M10 47H20M10 50H20" stroke="#2f3540" stroke-width=".8" />
+          <circle class="hanging-bulb__glass" cx="15" cy="62" r="8.5" />
+          <path d="M11 59Q15 54 19 59" fill="none" stroke="#fff6dc" stroke-width="1" opacity=".8" />
+        </svg>
+      </span>
+    </div>
+
+    <!-- 節の間①: 最初の画面の地面の先に敷いた、横いっぱいの赤茶のれんがの帯 -->
+    <div class="alley-props alley-props--gap" aria-hidden="true">
+      <span class="alley-band alley-band--brick"></span>
+    </div>
+
+    <aside class="signpost"><span>この先　ペッター／狐の窓</span></aside>
+    <section class="products" aria-labelledby="products-heading">
+      <!-- 店の両脇の壁の続き: 雨どい・明かりのついた格子窓・換気扇・勝手口と傘立て・自転車、その下の濡れた石畳 -->
+      <div class="alley-props alley-props--shops" aria-hidden="true">
+        <span class="downpipe"></span>
+        <svg class="pipe-ivy" viewBox="0 0 60 220" aria-hidden="true">
+          <g fill="none" stroke="#1f3324" stroke-width="1.5" stroke-linecap="round">
+            <path d="M14 0C20 30 8 58 16 92C22 120 10 150 18 182C21 196 16 208 18 220" />
+            <path d="M15 40C24 46 30 44 36 52M16 98C26 100 32 108 34 118M17 150C8 156 6 164 4 172" />
+          </g>
+          <g fill="#25412b">
+            <ellipse cx="22" cy="12" rx="5" ry="3.2" transform="rotate(-30 22 12)" />
+            <ellipse cx="9" cy="26" rx="5.4" ry="3.4" transform="rotate(35 9 26)" />
+            <ellipse cx="24" cy="44" rx="5" ry="3.2" transform="rotate(-20 24 44)" />
+            <ellipse cx="36" cy="52" rx="5.6" ry="3.4" transform="rotate(20 36 52)" />
+            <ellipse cx="8" cy="66" rx="5" ry="3.2" transform="rotate(40 8 66)" />
+            <ellipse cx="22" cy="82" rx="5.4" ry="3.4" transform="rotate(-35 22 82)" />
+            <ellipse cx="28" cy="104" rx="5" ry="3.2" transform="rotate(25 28 104)" />
+            <ellipse cx="35" cy="119" rx="5.4" ry="3.4" transform="rotate(-15 35 119)" />
+            <ellipse cx="9" cy="128" rx="5" ry="3.2" transform="rotate(30 9 128)" />
+            <ellipse cx="22" cy="146" rx="5.2" ry="3.3" transform="rotate(-25 22 146)" />
+            <ellipse cx="5" cy="170" rx="5" ry="3.2" transform="rotate(45 5 170)" />
+            <ellipse cx="23" cy="190" rx="4.6" ry="3" transform="rotate(-30 23 190)" />
+          </g>
+          <g fill="#3a6142" opacity=".8">
+            <ellipse cx="23" cy="11" rx="2.6" ry="1.4" transform="rotate(-30 23 11)" />
+            <ellipse cx="37" cy="51" rx="2.8" ry="1.4" transform="rotate(20 37 51)" />
+            <ellipse cx="23" cy="81" rx="2.6" ry="1.4" transform="rotate(-35 23 81)" />
+            <ellipse cx="36" cy="118" rx="2.8" ry="1.4" transform="rotate(-15 36 118)" />
+            <ellipse cx="23" cy="145" rx="2.6" ry="1.4" transform="rotate(-25 23 145)" />
+          </g>
+        </svg>
+
+        <span class="lit-window__spill"></span>
+        <svg class="lit-window" viewBox="0 0 150 132" aria-hidden="true">
+          <defs>
+            <linearGradient id="ab-win-light" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b08a52" />
+              <stop offset="1" stop-color="#6e4f2e" />
+            </linearGradient>
+            <linearGradient id="ab-sill-pot" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#3f2214" />
+              <stop offset=".6" stop-color="#5e3420" />
+              <stop offset="1" stop-color="#361d11" />
+            </linearGradient>
+          </defs>
+          <rect x="6" y="8" width="140" height="106" fill="#000" opacity=".35" />
+          <rect x="2" y="2" width="140" height="106" rx="2" fill="#1d1812" stroke="#0b0906" stroke-width="1.5" />
+          <rect x="12" y="12" width="120" height="86" fill="url(#ab-win-light)" />
+          <rect x="12" y="12" width="120" height="40" fill="#5c4525" />
+          <path d="M12 15H132M12 18H132M12 21H132M12 24H132M12 27H132M12 30H132M12 33H132M12 36H132M12 39H132M12 42H132M12 45H132M12 48H132" stroke="#3a2b16" stroke-width=".8" />
+          <path d="M12 52H132" stroke="#2a1f10" stroke-width="2" />
+          <path d="M42 12V53M102 12V53" stroke="#2a1f10" stroke-width="1" />
+          <path d="M20 12V98M28 12V98M36 12V98M44 12V98M52 12V98M60 12V98M68 12V98M76 12V98M84 12V98M92 12V98M100 12V98M108 12V98M116 12V98M124 12V98" stroke="#15100b" stroke-width="2.6" />
+          <rect x="12" y="73" width="120" height="2.6" fill="#15100b" />
+          <rect x="70.6" y="12" width="2.8" height="86" fill="#1d1812" />
+          <path d="M141 6V106" stroke="#f0d49a" stroke-width=".9" opacity=".22" />
+          <rect x="0" y="105" width="148" height="7" rx="1" fill="#2c323c" />
+          <path d="M1 105.6H147" stroke="#5d6676" stroke-width=".8" opacity=".6" />
+          <path d="M147 106V111" stroke="#f0d49a" stroke-width=".8" opacity=".25" />
+          <g fill="none" stroke="#0e1410" stroke-linecap="round">
+            <path d="M24 96C22 88 18 84 13 80" stroke-width="1.6" />
+            <path d="M24 96C25 86 27 80 30 74" stroke-width="1.6" />
+            <path d="M24 96C28 90 33 88 37 87" stroke-width="1.4" />
+            <path d="M58 96C57 90 55 86 52 84" stroke-width="1.3" />
+            <path d="M58 96C60 90 63 87 66 86" stroke-width="1.3" />
+            <path d="M118 96C116 86 112 80 108 76" stroke-width="1.6" />
+            <path d="M118 96C120 84 124 78 128 72" stroke-width="1.6" />
+            <path d="M118 96C121 90 126 88 132 88" stroke-width="1.4" />
+          </g>
+          <path d="M16 95H32L30 105H18Z" fill="url(#ab-sill-pot)" />
+          <path d="M51 97H65L63.5 105H52.5Z" fill="url(#ab-sill-pot)" />
+          <path d="M110 95H126L124 105H112Z" fill="url(#ab-sill-pot)" />
+        </svg>
+
+        <svg class="vent-fan" viewBox="0 0 64 70" aria-hidden="true">
+          <defs>
+            <linearGradient id="ab-vent-case" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#363d4a" />
+              <stop offset=".18" stop-color="#252b35" />
+              <stop offset="1" stop-color="#151920" />
+            </linearGradient>
+          </defs>
+          <rect x="4" y="6" width="58" height="58" rx="3" fill="#000" opacity=".35" />
+          <rect x="2" y="2" width="58" height="58" rx="3" fill="url(#ab-vent-case)" stroke="#0d1016" stroke-width="1.2" />
+          <path d="M5 2.9H57" stroke="#5d6676" stroke-width="1" opacity=".75" />
+          <circle cx="31" cy="31" r="23" fill="#07090d" stroke="#3a414d" stroke-width="1.5" />
+          <g class="vent-fan__blades" fill="#1d232c" stroke="#2f3743" stroke-width=".8">
+            <path d="M31 31C33 21 39 14 48 14C46 21 40 27 31 31Z" />
+            <path d="M31 31C33 21 39 14 48 14C46 21 40 27 31 31Z" transform="rotate(90 31 31)" />
+            <path d="M31 31C33 21 39 14 48 14C46 21 40 27 31 31Z" transform="rotate(180 31 31)" />
+            <path d="M31 31C33 21 39 14 48 14C46 21 40 27 31 31Z" transform="rotate(270 31 31)" />
+          </g>
+          <g fill="none" stroke="#3b4350" stroke-width="1.1">
+            <circle cx="31" cy="31" r="16" />
+            <path d="M31 8V54M8 31H54" />
+          </g>
+          <circle cx="31" cy="31" r="4" fill="#262c36" stroke="#3e4653" stroke-width="1.2" />
+          <path d="M59.2 6V56" stroke="#f0d49a" stroke-width=".9" opacity=".22" />
+          <path d="M16 61V69M23 61V65M44 61V67" stroke="#4a2f1e" stroke-width="1.4" stroke-linecap="round" opacity=".55" />
+        </svg>
+
+        <svg class="gas-meter" viewBox="0 0 48 92" aria-hidden="true">
+          <defs>
+            <linearGradient id="ab-gas" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6f6646" />
+              <stop offset=".2" stop-color="#5a5238" />
+              <stop offset="1" stop-color="#3e3826" />
+            </linearGradient>
+          </defs>
+          <rect x="21" y="0" width="6" height="14" fill="#1c222d" />
+          <rect x="21" y="62" width="6" height="30" fill="#1c222d" />
+          <path d="M25.6 0V14M25.6 62V92" stroke="#f0d49a" stroke-width=".6" opacity=".2" />
+          <rect x="18" y="10" width="12" height="5" rx="1" fill="#313844" />
+          <rect x="18" y="60" width="12" height="5" rx="1" fill="#313844" />
+          <rect x="6" y="18" width="38" height="44" rx="3" fill="#000" opacity=".35" />
+          <rect x="4" y="15" width="38" height="44" rx="3" fill="url(#ab-gas)" stroke="#16130c" />
+          <path d="M7 16H39" stroke="#9c916a" stroke-width=".8" opacity=".55" />
+          <rect x="10" y="22" width="26" height="14" rx="1" fill="#14130e" />
+          <path d="M13 29H33" stroke="#4a4a3c" stroke-width="2.2" stroke-dasharray="2.4 1.4" />
+          <rect x="10" y="41" width="26" height="12" rx="1" fill="none" stroke="#2e2a1c" stroke-width="1" />
+          <path d="M41.2 19V56" stroke="#f0d49a" stroke-width=".8" opacity=".25" />
+          <path d="M14 59V66M30 59V63" stroke="#4a2f1e" stroke-width="1.2" stroke-linecap="round" opacity=".5" />
+        </svg>
+
+        <svg class="back-door" viewBox="0 0 104 210" aria-hidden="true">
+          <defs>
+            <linearGradient id="ab-door" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#252a33" />
+              <stop offset=".7" stop-color="#323945" />
+              <stop offset="1" stop-color="#20252d" />
+            </linearGradient>
+            <linearGradient id="ab-door-glass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b3955d" />
+              <stop offset="1" stop-color="#76603d" />
+            </linearGradient>
+            <radialGradient id="ab-door-halo" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#ffecbe" stop-opacity=".55" />
+              <stop offset=".35" stop-color="#ffd68c" stop-opacity=".16" />
+              <stop offset="1" stop-color="#ffd68c" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="ab-door-wash" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f0d49a" stop-opacity=".13" />
+              <stop offset="1" stop-color="#f0d49a" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="52" cy="207" rx="50" ry="3" fill="#000" opacity=".45" />
+          <circle class="back-door__halo" cx="52" cy="26" r="40" fill="url(#ab-door-halo)" />
+          <rect x="10" y="44" width="84" height="158" fill="#141820" />
+          <rect x="16" y="50" width="72" height="150" fill="url(#ab-door)" stroke="#0e1116" />
+          <rect x="16" y="50" width="72" height="70" fill="url(#ab-door-wash)" />
+          <rect x="30" y="62" width="44" height="34" fill="#0b0d12" />
+          <rect x="32" y="64" width="40" height="30" fill="url(#ab-door-glass)" opacity=".8" />
+          <path d="M32 70 38 64M32 78 46 64M32 86 54 64M34 94 64 64M42 94 72 64M50 94 72 72M58 94 72 80M66 94 72 88" stroke="#3b2f1c" stroke-width=".6" opacity=".7" />
+          <rect x="26" y="110" width="52" height="70" fill="none" stroke="#1b2028" stroke-width="1.5" />
+          <path d="M27 110.8H77" stroke="#4a515d" stroke-width=".7" opacity=".6" />
+          <rect x="74" y="122" width="6" height="16" rx="2" fill="#171b22" />
+          <circle cx="77" cy="128" r="2.6" fill="#5a6270" />
+          <rect x="16" y="186" width="72" height="14" fill="#1c2129" />
+          <path d="M24 186V196M58 186V192M70 186V198" stroke="#4a2f1e" stroke-width="1.4" stroke-linecap="round" opacity=".55" />
+          <path d="M87.3 54V198" stroke="#f0d49a" stroke-width=".9" opacity=".25" />
+          <rect x="4" y="200" width="96" height="8" fill="#262b34" />
+          <path d="M4 200.6H100" stroke="#4a515d" stroke-width=".8" opacity=".7" />
+          <rect x="46" y="34" width="12" height="6" rx="1" fill="#262b34" />
+          <path d="M52 34V27" stroke="#1b1f27" stroke-width="3" />
+          <path d="M42 18H62L67 27H37Z" fill="#2d333d" />
+          <path d="M62 18 67 27" stroke="#4d5462" stroke-width=".8" />
+          <ellipse class="back-door__bulb" cx="52" cy="27.5" rx="9" ry="3.2" />
+        </svg>
+
+        <svg class="umbrella-stand" viewBox="0 0 40 84" aria-hidden="true">
+          <defs>
+            <linearGradient id="ab-stand" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#171b22" />
+              <stop offset=".6" stop-color="#2b313b" />
+              <stop offset="1" stop-color="#161a20" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="20" cy="82" rx="18" ry="2.2" fill="#000" opacity=".45" />
+          <path d="M12 40 14 24 17 40Z" fill="#5c241b" />
+          <path d="M14.2 24V12" stroke="#2a1d17" stroke-width="1.4" />
+          <path d="M14.2 12V6Q14.2 2 10.6 2.6Q8 3.2 8.4 6" fill="none" stroke="#3a2a20" stroke-width="2" stroke-linecap="round" />
+          <path d="M20 40 23 20 26 40Z" fill="#8f9aa6" opacity=".45" />
+          <path d="M23 20V9" stroke="#3a414c" stroke-width="1.2" />
+          <path d="M23 9V4Q23 .8 26 1.4Q28.4 2 28 5" fill="none" stroke="#5a5f68" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M26 40 29 27 32 40Z" fill="#1f2b40" />
+          <path d="M29 27V16" stroke="#1b1f27" stroke-width="1.3" />
+          <path d="M29 16V11Q29 8 32 8.6Q34.4 9.2 34 12" fill="none" stroke="#2c241c" stroke-width="2" stroke-linecap="round" />
+          <path d="M6 40H34L32 80H8Z" fill="url(#ab-stand)" />
+          <rect x="5" y="38" width="30" height="4" rx="1" fill="#3a414c" />
+          <path d="M6.6 52H33.4M7.4 68H32.6" stroke="#0f1216" stroke-width="1.4" />
+          <path d="M33.4 43 31.6 79" stroke="#f0d49a" stroke-width=".8" opacity=".25" />
+        </svg>
+
+        <svg class="alley-bicycle" viewBox="0 0 170 100" aria-hidden="true">
+          <ellipse cx="86" cy="97.5" rx="80" ry="2.5" fill="#000" opacity=".45" />
+          <g fill="none">
+            <circle cx="38" cy="70" r="25" stroke="#08090c" stroke-width="5" />
+            <circle cx="134" cy="70" r="25" stroke="#08090c" stroke-width="5" />
+            <circle cx="38" cy="70" r="21.5" stroke="#353c47" stroke-width="1.1" />
+            <circle cx="134" cy="70" r="21.5" stroke="#353c47" stroke-width="1.1" />
+            <path d="M38 48.5V91.5M16.5 70H59.5M22.8 54.8 53.2 85.2M53.2 54.8 22.8 85.2M134 48.5V91.5M112.5 70H155.5M118.8 54.8 149.2 85.2M149.2 54.8 118.8 85.2" stroke="#1d222a" stroke-width=".7" />
+            <path d="M12 66A26 26 0 0 1 50 47" stroke="#262c35" stroke-width="2.4" stroke-linecap="round" />
+            <path d="M114 50A26 26 0 0 1 158 62" stroke="#262c35" stroke-width="2.4" stroke-linecap="round" />
+            <g stroke="#2f3d47" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M38 70 76 72 62 30" />
+              <path d="M38 70 63 35" />
+              <path d="M76 72Q98 66 117 42" />
+              <path d="M117 44 120 30" />
+              <path d="M118 40Q124 58 134 70" />
+            </g>
+            <path d="M75 70Q96 64 115 41" stroke="#f0d49a" stroke-width=".6" opacity=".22" />
+            <path d="M40 44H66M42 44 38 68M64 44 62 50" stroke="#262c35" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M120 30 118 22M119 22Q110 19 101 25" stroke="#1d222a" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M40 72 30 96" stroke="#1d222a" stroke-width="2" stroke-linecap="round" />
+          </g>
+          <path d="M53 27Q62 22 72 27L70 30H55Z" fill="#14171c" />
+          <path d="M58 74Q76 64 84 74Q66 80 46 74Z" fill="#232931" />
+          <path d="M123 22H152L149 42H126Z" fill="#11151b" stroke="#3a414c" stroke-width="1.2" stroke-linejoin="round" />
+          <path d="M124 28H151M125 35H150M130 22 131 42M137 22V42M144 22 143 42" stroke="#2b313b" stroke-width=".8" />
+          <path d="M151.4 23 148.6 41" stroke="#f0d49a" stroke-width=".7" opacity=".25" />
+          <circle cx="76" cy="72" r="4" fill="#171b21" stroke="#353c47" stroke-width=".8" />
+        </svg>
+
+        <span class="alley-ground"></span>
+        <span class="alley-puddle alley-puddle--door"><span class="alley-puddle__ripple"></span></span>
+        <span class="alley-puddle alley-puddle--small"></span>
+
+        <!-- 節の間②: 石畳を歩いて横切る黒猫 -->
+        <svg class="walking-cat" viewBox="0 0 120 70" aria-hidden="true">
+          <ellipse cx="62" cy="65.5" rx="44" ry="2.6" fill="#000" opacity=".5" />
+          <g fill="#07080c">
+            <path d="M26 32C14 30 8 22 10 10C11 6 15 6 15 10C14 20 18 26 28 28Z" />
+            <path d="M30 38 38 63H42L38 38Z" />
+            <path d="M74 42 72 63H76L80 42Z" />
+            <path d="M24 34C24 22 40 18 62 19C80 20 90 22 94 30C96 38 90 44 78 45H36C28 45 24 41 24 34Z" />
+            <path d="M40 40 32 62H36L46 42Z" />
+            <path d="M82 40 88 62H92L88 40Z" />
+            <path d="M88 22C88 14 94 10 101 10C109 10 113 16 112 24C111 31 105 34 99 34C92 34 88 29 88 22Z" />
+            <path d="M91 15 92 4 99 11Z" />
+            <path d="M104 10 111 2 112 15Z" />
+          </g>
+          <path d="M30 24C40 19 56 18 66 19C80 20 88 22 92 27M101 10.4C107 10.6 111 15 111.6 21M10.6 9C10 15 11 20 13 24" fill="none" stroke="#f0d49a" stroke-width=".8" opacity=".28" />
+          <ellipse cx="104.5" cy="21.5" rx="2" ry="1.5" fill="#e3c25a" />
+        </svg>
+      </div>
+
       <h2 id="products-heading">商品</h2>
       <div class="product-list">
-        <article class="product-card">
-          <div class="product-card__media">
-            <img src="images/petter-1.jpg" alt="ペッターの紹介画像。大きなアバターの前に、小さくなったアバターがペットとして座っている">
-          </div>
-          <div class="product-card__body">
-            <h3>ペッター</h3>
+        <article class="storefront storefront--petter">
+          <a class="storefront__link" href="petter.html">
+            <div class="storefront__front">
+              <div class="storefront__interior">
+                <div class="storefront__media">
+                  <img src="images/petter-1.jpg" alt="ペッターの紹介画像。大きなアバターの前に、小さくなったアバターがペットとして座っている">
+                </div>
+                <div class="shutter" aria-hidden="true">
+                  <span class="shutter__surface"></span>
+                </div>
+              </div>
+            </div>
+            <h3 class="storefront__name">ペッター</h3>
             <p class="subtitle">自分のアバターがペットになって付いてくる追従ギミック</p>
-            <p>あなたのアバターが、もう1体。自分の足で歩いて付いてきます。</p>
-            <p>いつも使っているアバターを、そのままペットにできます。あなたが歩けば歩き、離れれば駆け足になり、立ち止まればそばで待つ。浮かんでいるのではなく、脚を動かして付いてくるペットです。</p>
-            <ul>
-              <li>Humanoid のモデルを1つ選んで「全部セットアップ」を押すだけ</li>
-              <li>大きさは 30cm〜2m。追従の距離は大きさに合わせて自動で調整</li>
-              <li>「お座り」でその場に留まる。メニューから高さ調整と表示 / 非表示</li>
-              <li>「ペッターを取り外す」で、セットアップ前へ戻せます</li>
-            </ul>
-            <p class="note">PC（Windows）専用・Modular Avatar が必要です。くわしくは BOOTH の商品ページをご覧ください。</p>
-            <a class="button" href="https://yukisandosukebe.booth.pm/items/8872913" target="_blank" rel="noopener">BOOTH で見る</a>
-          </div>
+            <p class="storefront__tags"><span class="tag tag--status">販売中</span><span class="tag">アバター用</span></p>
+          </a>
         </article>
 
-        <article class="product-card">
-          <div class="product-card__media fox-window" role="img" aria-label="狐の窓">
-            <div class="fox-window__diamond"></div>
-            <span>狐の窓</span>
-          </div>
-          <div class="product-card__body">
-            <div class="title-row">
-              <h3>狐の窓</h3>
-              <span class="badge">近日公開</span>
+        <article class="storefront storefront--closed">
+          <a class="storefront__link" href="kitsune-window.html">
+            <div class="storefront__front">
+              <div class="storefront__interior storefront__interior--fox">
+                <div class="storefront__media">
+                  <img src="images/kitsune-window-1.jpg" alt="狐の窓の紹介画像。輪の窓越しに見たところだけ、顔が狐に変わっている">
+                </div>
+                <div class="shutter" aria-hidden="true">
+                  <span class="shutter__surface"></span>
+                  <span class="badge">近日公開</span>
+                </div>
+              </div>
             </div>
+            <h3 class="storefront__name">狐の窓</h3>
             <p class="subtitle">指の窓越しにだけ、もうひとつの姿が見えるアバターギミック</p>
-            <p>指を組んで小さな窓をこしらえ、その隙間から覗くと、<br>化けているものの正体が見える――。<br>「狐の窓」と呼ばれる、古くからの言い伝えです。</p>
-            <ul>
-              <li>指で窓を作って覗くと、窓の中だけ別の姿に見える</li>
-              <li>アバター用のオプション: 変身・鬼火</li>
-              <li>ワールド用の「狐の泡」: 被ると、その人の画面で窓の中の姿が見える泡</li>
-            </ul>
-            <p class="note">公開したら BOOTH と X でお知らせします。</p>
-          </div>
+            <p class="storefront__tags"><span class="tag tag--status tag--soon">近日公開</span><span class="tag">アバター用</span><span class="tag">ワールド用</span></p>
+          </a>
         </article>
       </div>
     </section>
@@ -82,13 +774,185 @@
       <h2 id="contact-heading">お問い合わせ</h2>
       <p>不具合のご報告・ご質問は、X の <a href="https://x.com/roziura_shop" target="_blank" rel="noopener">@roziura_shop</a> までお願いします。</p>
     </section>
+
+    <!-- 張り紙の両脇の壁: 古いポスターの跡とチョークの猫の落書き（字なし）、腕金の裸電球と這う電線 -->
+    <div class="alley-props alley-props--notice" aria-hidden="true">
+      <svg class="old-posters" viewBox="0 0 130 140" aria-hidden="true">
+        <path d="M8 10 62 6 64 30 58 34 63 42 56 50 60 60 66 64 62 82 12 86Z" fill="#5f5a50" opacity=".42" />
+        <circle cx="36" cy="38" r="14" fill="#913828" opacity=".32" />
+        <path d="M14 62H56M14 70H48M14 78H52" stroke="#2a2723" stroke-width="4" opacity=".35" />
+        <path d="M62 6 64 30 58 34 63 42 56 50 60 60 66 64 62 82" fill="none" stroke="#bdb5a1" stroke-width=".7" opacity=".28" />
+        <rect x="26" y="2" width="16" height="6" fill="#cfc6a8" opacity=".2" transform="rotate(-5 34 5)" />
+        <path d="M74 52 118 48 122 70 112 74 120 82 110 92 116 104 78 110Z" fill="#6f6a5e" opacity=".36" />
+        <path d="M80 58 112 56 114 78 82 82Z" fill="#a8cabb" opacity=".14" />
+        <path d="M90 64 104 63 106 76 92 77Z" fill="#a8cabb" opacity=".14" />
+        <rect x="88" y="44" width="14" height="5" fill="#cfc6a8" opacity=".18" transform="rotate(6 95 46)" />
+        <rect x="100" y="106" width="12" height="5" fill="#cfc6a8" opacity=".14" transform="rotate(-9 106 108)" />
+        <path d="M20 96 44 94 42 112 22 110Z" fill="none" stroke="#1d222c" stroke-dasharray="3 2" opacity=".7" />
+        <rect x="18" y="92" width="10" height="4" fill="#cfc6a8" opacity=".12" transform="rotate(8 23 94)" />
+        <circle cx="12" cy="14" r=".9" fill="#9aa1ab" opacity=".55" />
+        <circle cx="78" cy="56" r=".9" fill="#9aa1ab" opacity=".5" />
+      </svg>
+
+      <svg class="chalk-cat" viewBox="0 0 80 60" aria-hidden="true">
+        <g fill="none" stroke="#d9d4c6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity=".2">
+          <path d="M12 44C9 32 12 22 16 18L18 6 26 15C30 14 34 14 38 15L46 6 47 19C52 24 53 34 50 44C44 52 18 52 12 44Z" />
+          <path d="M23 31V33M39 31V33" stroke-width="2.4" />
+          <path d="M29 38 31 40 33 38" />
+          <path d="M8 34 20 37M7 40 20 40M44 37 56 34M44 40 57 40" stroke-width="1.1" />
+          <path d="M51 46C60 46 64 40 62 32C61 27 66 24 70 27" />
+        </g>
+      </svg>
+
+      <span class="wall-cables"></span>
+      <span class="bracket-lamp">
+        <span class="bracket-lamp__halo"></span>
+        <svg viewBox="0 0 70 90" aria-hidden="true">
+          <rect x="56" y="4" width="10" height="18" rx="1.5" fill="#262b34" />
+          <path d="M65.6 6V20" stroke="#f0d49a" stroke-width=".7" opacity=".25" />
+          <path d="M57 13H30Q22 13 22 21V30" fill="none" stroke="#1b1f27" stroke-width="3" />
+          <path d="M57 11.8H30Q21 11.8 20.8 21" fill="none" stroke="#4a515d" stroke-width=".7" opacity=".7" />
+          <rect x="17" y="29" width="10" height="9" rx="1.5" fill="#1b1f27" />
+          <circle class="bracket-lamp__glass" cx="22" cy="45" r="8" />
+          <path d="M18 42Q22 37 26 42" fill="none" stroke="#fff6dc" stroke-width="1" opacity=".8" />
+        </svg>
+      </span>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>© ドコカノロジウラ</p>
-      <p class="note">VRChat は VRChat Inc. の商標です。このサイトは VRChat Inc. の公式のものではありません。</p>
+  <footer class="container">
+    <!-- 路地の突き当たり: 板塀と石畳、塀の前の植木鉢と、小さなお稲荷さん（鳥居・祠・狛狐） -->
+    <!-- 節の間③: 横いっぱいの灰色の角石の帯（小さな水たまり付き）と、その上に吊るした提灯の列（字なし） -->
+    <span class="alley-band alley-band--setts" aria-hidden="true"><span class="alley-puddle alley-band__puddle"></span></span>
+
+    <svg class="lantern-string" viewBox="0 0 460 100" aria-hidden="true">
+      <defs>
+        <radialGradient id="ab-lantern" cx=".45" cy=".45" r=".6">
+          <stop offset="0" stop-color="#e8b070" />
+          <stop offset=".45" stop-color="#a8482e" />
+          <stop offset="1" stop-color="#5a2017" />
+        </radialGradient>
+        <radialGradient id="ab-lantern-glow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#f0d49a" stop-opacity=".22" />
+          <stop offset="1" stop-color="#f0d49a" stop-opacity="0" />
+        </radialGradient>
+        <symbol id="ab-lantern-one" viewBox="0 0 24 40" overflow="visible">
+          <circle cx="12" cy="20" r="20" fill="url(#ab-lantern-glow)" />
+          <path d="M12 0V6" stroke="#05070b" stroke-width="1" />
+          <rect x="6" y="5" width="12" height="3" rx="1" fill="#17110e" />
+          <ellipse cx="12" cy="20" rx="10" ry="12.5" fill="url(#ab-lantern)" />
+          <path d="M3 15H21M2.2 20H21.8M3 25H21" stroke="#3f160f" stroke-width=".7" opacity=".7" />
+          <rect x="6" y="31.5" width="12" height="3" rx="1" fill="#17110e" />
+          <path d="M12 34.5V39" stroke="#17110e" stroke-width="1.2" />
+        </symbol>
+      </defs>
+      <path d="M0 10Q230 50 460 10" fill="none" stroke="#030407" stroke-width="1.6" />
+      <path d="M0 9Q230 49 460 9" fill="none" stroke="#3a414c" stroke-width=".6" opacity=".5" />
+      <use class="lantern-string__one" href="#ab-lantern-one" x="34" y="17" width="24" height="40" />
+      <use class="lantern-string__one" href="#ab-lantern-one" x="126" y="26.5" width="24" height="40" />
+      <use class="lantern-string__one" href="#ab-lantern-one" x="218" y="30" width="24" height="40" />
+      <use class="lantern-string__one" href="#ab-lantern-one" x="310" y="26.5" width="24" height="40" />
+      <use class="lantern-string__one" href="#ab-lantern-one" x="402" y="17" width="24" height="40" />
+    </svg>
+
+    <div class="alley-end" aria-hidden="true">
+      <!-- 節の間④: 突き当たりの手前の、横いっぱいの大きな敷石の帯（水たまり付き） -->
+      <span class="alley-band alley-band--flag"><span class="alley-puddle alley-band__puddle"></span></span>
+      <span class="alley-end__tree"></span>
+      <span class="alley-end__fence"></span>
+      <span class="alley-end__ground"></span>
+
+      <svg class="alley-end__pots" viewBox="0 0 150 70" aria-hidden="true">
+        <defs>
+          <linearGradient id="ab-end-pot" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#3f2214" />
+            <stop offset=".6" stop-color="#5e3420" />
+            <stop offset="1" stop-color="#361d11" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="75" cy="67.5" rx="72" ry="2.5" fill="#000" opacity=".45" />
+        <g fill="none" stroke-linecap="round">
+          <path d="M14 40V18M18 40V12M22 40V20M26 40V14M30 40V22M34 40V16M38 40V24M42 40V15M46 40V21M50 40V13M54 40V19" stroke="#2f4a2d" stroke-width="1.8" />
+          <path d="M18 13V18M26 15V20M42 16V20" stroke="#f0d49a" stroke-width=".5" opacity=".3" />
+        </g>
+        <rect x="6" y="38" width="56" height="28" rx="1" fill="#5a5e62" />
+        <rect x="6" y="38" width="56" height="4" fill="#6c7176" />
+        <path d="M61.4 42V65" stroke="#f0d49a" stroke-width=".8" opacity=".22" />
+        <path d="M14 48 22 52M38 56 46 59" stroke="#45494d" stroke-width="1" />
+        <g fill="none" stroke-linecap="round">
+          <path d="M88 44C86 34 80 28 74 24" stroke="#3e623b" stroke-width="1.8" />
+          <path d="M88 44C89 32 92 24 96 18" stroke="#4d7848" stroke-width="1.8" />
+          <path d="M88 44C92 36 98 32 104 30" stroke="#355432" stroke-width="1.6" />
+          <path d="M126 46C122 40 118 36 112 34" stroke="#355432" stroke-width="1.6" />
+          <path d="M126 46C127 38 130 34 134 30" stroke="#3e623b" stroke-width="1.7" />
+          <path d="M126 46C130 42 136 41 142 42" stroke="#4d7848" stroke-width="1.5" />
+        </g>
+        <ellipse cx="88" cy="45" rx="12" ry="2.4" fill="#1c120c" />
+        <path d="M75 46H101L97 66H79Z" fill="url(#ab-end-pot)" />
+        <rect x="73" y="42" width="30" height="6" rx="1" fill="#6e3d26" />
+        <path d="M100.4 48 97 65.5" stroke="#f0d49a" stroke-width=".8" opacity=".22" />
+        <path d="M114 50H138L135 66H117Z" fill="url(#ab-end-pot)" />
+        <rect x="112" y="46" width="28" height="5" rx="1" fill="#6e3d26" />
+        <path d="M137.4 51 134.6 65.5" stroke="#f0d49a" stroke-width=".8" opacity=".22" />
+      </svg>
+
+      <div class="inari">
+        <span class="inari__glow"></span>
+        <svg class="inari__hokora" viewBox="0 0 80 96" aria-hidden="true">
+          <defs>
+            <linearGradient id="ab-hokora-light" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f0d49a" />
+              <stop offset="1" stop-color="#b9772e" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="40" cy="94" rx="38" ry="2.2" fill="#000" opacity=".45" />
+          <rect x="4" y="74" width="72" height="20" fill="#252a33" />
+          <path d="M4 74.6H76" stroke="#4a515d" stroke-width=".8" opacity=".7" />
+          <path d="M28 74V94M52 74V94M4 84H76" stroke="#15181e" stroke-width="1" />
+          <path d="M75.4 76V93" stroke="#f0d49a" stroke-width=".8" opacity=".22" />
+          <rect x="16" y="40" width="48" height="34" fill="#33251a" />
+          <rect x="24" y="46" width="32" height="28" fill="#0c0906" />
+          <rect class="inari__candle" x="35" y="54" width="10" height="20" fill="url(#ab-hokora-light)" opacity=".55" />
+          <rect x="22" y="46" width="11" height="28" fill="#47321f" />
+          <rect x="47" y="46" width="11" height="28" fill="#47321f" />
+          <path d="M24 50H31M24 58H31M24 66H31M49 50H56M49 58H56M49 66H56" stroke="#2a1d12" stroke-width="1" />
+          <path d="M63.4 42V73" stroke="#f0d49a" stroke-width=".8" opacity=".22" />
+          <path d="M40 16 4 42H76Z" fill="#1d1914" />
+          <path d="M2 41H78L73 47H7Z" fill="#2a231b" />
+          <path d="M40 16 76 41" stroke="#4d4538" stroke-width=".8" opacity=".7" />
+          <rect x="36" y="12" width="8" height="6" fill="#2a231b" />
+          <path d="M14 48Q40 55 66 48" fill="none" stroke="#8c7a55" stroke-width="2.2" opacity=".75" />
+          <path d="M26 51 28 54 26 55 28 58M40 52.5 42 55.5 40 56.5 42 59.5M54 51 56 54 54 55 56 58" fill="none" stroke="#d9d4c6" stroke-width="1.2" opacity=".55" />
+        </svg>
+        <img class="inari__fox inari__fox--left" src="images/kw-fox-statue-r.webp" alt="" width="428" height="700" loading="lazy">
+        <img class="inari__fox inari__fox--right" src="images/kw-fox-statue.webp" alt="" width="428" height="700" loading="lazy">
+        <svg class="inari__torii" viewBox="0 0 140 150" aria-hidden="true">
+          <defs>
+            <linearGradient id="ab-torii" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#4a1a13" />
+              <stop offset=".65" stop-color="#7a2c1f" />
+              <stop offset="1" stop-color="#46180f" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="70" cy="147.5" rx="64" ry="2.5" fill="#000" opacity=".45" />
+          <path d="M29 26 25 140H35L37 26Z" fill="url(#ab-torii)" />
+          <path d="M103 26 105 140H115L111 26Z" fill="url(#ab-torii)" />
+          <path d="M34.6 30 33 128M113.6 30 114.4 128" stroke="#f0d49a" stroke-width=".8" opacity=".2" />
+          <rect x="22" y="126" width="16" height="14" fill="#15100d" />
+          <rect x="102" y="126" width="16" height="14" fill="#15100d" />
+          <rect x="8" y="42" width="124" height="7" fill="#6e271c" />
+          <path d="M8 42.6H132" stroke="#c0604a" stroke-width=".7" opacity=".35" />
+          <rect x="65" y="27" width="10" height="16" fill="#5a2017" />
+          <rect x="10" y="21" width="120" height="7" fill="#5a2017" />
+          <path d="M2 14Q70 23 138 14L136 22Q70 29 4 22Z" fill="#6e271c" />
+          <path d="M0 9Q70 19 140 9L139 15Q70 24 1 15Z" fill="#17110e" />
+          <path d="M1 9.6Q70 19.6 139 9.6" fill="none" stroke="#4d4538" stroke-width=".7" opacity=".7" />
+        </svg>
+      </div>
     </div>
+
+    <p>© ドコカノロジウラ</p>
+    <p class="note">VRChat は VRChat Inc. の商標です。このサイトは VRChat Inc. の公式のものではありません。</p>
   </footer>
 </body>
 </html>
