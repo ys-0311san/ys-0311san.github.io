@@ -31,7 +31,7 @@
   box-shadow: none;
 }
 
-.petter-page a:focus-visible { outline: 3px solid var(--ai); outline-offset: 4px; }
+.petter-main a:focus-visible { outline: 3px solid var(--ai); outline-offset: 4px; }
 .petter-main { overflow: hidden; }
 
 /* ----- 最初の画面 ----- */
