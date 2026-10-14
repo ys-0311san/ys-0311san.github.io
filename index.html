@@ -483,7 +483,7 @@
       <span class="alley-band alley-band--brick"></span>
     </div>
 
-    <aside class="signpost"><span>この先　ペッター／狐の窓</span></aside>
+    <aside class="signpost"><span>この先　ペッター／狐の窓／ピクセルメーカー</span></aside>
     <section class="products" aria-labelledby="products-heading">
       <!-- 店の両脇の壁の続き: 雨どい・明かりのついた格子窓・換気扇・勝手口と傘立て・自転車、その下の濡れた石畳 -->
       <div class="alley-props alley-props--shops" aria-hidden="true">
@@ -767,6 +767,87 @@
             <p class="subtitle">指の窓越しにだけ、もうひとつの姿が見えるアバターギミック</p>
             <p class="storefront__tags"><span class="tag tag--status tag--soon">近日公開</span><span class="tag">アバター用</span><span class="tag">ワールド用</span></p>
           </a>
+        </article>
+
+        <article class="storefront storefront--arcade">
+          <div class="storefront__link">
+            <div class="storefront__front">
+              <div class="storefront__interior storefront__interior--arcade">
+                <svg class="arcade-store-art" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="arcade-store-room" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#090716" />
+                        <stop offset="1" stop-color="#18102d" />
+                      </linearGradient>
+                      <linearGradient id="arcade-store-cabinet" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#251d3e" />
+                        <stop offset=".55" stop-color="#47305c" />
+                        <stop offset="1" stop-color="#181329" />
+                      </linearGradient>
+                      <linearGradient id="arcade-store-glass" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#2a1d4a" stop-opacity=".55" />
+                        <stop offset="1" stop-color="#0b0818" stop-opacity=".9" />
+                      </linearGradient>
+                      <pattern id="arcade-store-carpet" width="34" height="34" patternUnits="userSpaceOnUse">
+                        <rect width="34" height="34" fill="#100d20" />
+                        <path d="M0 17 17 0 34 17 17 34Z" fill="none" stroke="#3ee6ff" stroke-opacity=".19" stroke-width="2" />
+                        <circle cx="17" cy="17" r="3" fill="#ff4fa3" fill-opacity=".34" />
+                        <path d="M0 0 7 7M34 0l-7 7M0 34l7-7M34 34l-7-7" stroke="#ffd84a" stroke-opacity=".22" stroke-width="2" />
+                      </pattern>
+                      <filter id="arcade-store-glow" x="-40%" y="-40%" width="180%" height="180%">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                      </filter>
+                      <g id="pmx-heart"><rect x="7" y="0" width="14" height="7"/><rect x="28" y="0" width="14" height="7"/><rect x="0" y="7" width="49" height="7"/><rect x="0" y="14" width="49" height="7"/><rect x="7" y="21" width="35" height="7"/><rect x="14" y="28" width="21" height="7"/><rect x="21" y="35" width="7" height="7"/></g><g id="pmx-star"><rect x="24" y="0" width="6" height="6"/><rect x="24" y="6" width="6" height="6"/><rect x="18" y="12" width="18" height="6"/><rect x="0" y="18" width="54" height="6"/><rect x="6" y="24" width="42" height="6"/><rect x="12" y="30" width="30" height="6"/><rect x="12" y="36" width="12" height="6"/><rect x="30" y="36" width="12" height="6"/><rect x="6" y="42" width="12" height="6"/><rect x="36" y="42" width="12" height="6"/></g><g id="pmx-gem"><rect x="7" y="0" width="35" height="7"/><rect x="0" y="7" width="49" height="7"/><rect x="0" y="14" width="49" height="7"/><rect x="7" y="21" width="35" height="7"/><rect x="14" y="28" width="21" height="7"/><rect x="21" y="35" width="7" height="7"/></g>
+                    </defs>
+                    <rect width="300" height="300" fill="url(#arcade-store-room)" />
+                    <path d="M0 146 300 128V300H0Z" fill="url(#arcade-store-carpet)" />
+                    <g class="arcade-store-neon" fill="none" stroke-linecap="round" stroke-width="5" filter="url(#arcade-store-glow)">
+                      <path d="M24 35 130 29" stroke="#ff4fa3" />
+                      <path d="M174 27 276 36" stroke="#3ee6ff" />
+                    </g>
+                    <!-- 奥の筐体 3 台（画面は黒猫・ハート・薬の瓶） -->
+                    <g transform="translate(18 77)">
+                      <path d="M8 0h66l8 30-7 96H5L0 30Z" fill="url(#arcade-store-cabinet)" stroke="#ff4fa3" stroke-width="2" />
+                      <rect x="11" y="12" width="58" height="48" rx="4" fill="#070b1c" stroke="#7d5eff" stroke-width="2" />
+                      <g fill="#9d7bff"><rect x="19" y="18" width="6" height="6"/><rect x="55" y="18" width="6" height="6"/><rect x="19" y="24" width="12" height="6"/><rect x="49" y="24" width="12" height="6"/><rect x="19" y="30" width="42" height="6"/><rect x="19" y="36" width="6" height="6"/><rect x="31" y="36" width="18" height="6"/><rect x="55" y="36" width="6" height="6"/><rect x="19" y="42" width="18" height="6"/><rect x="43" y="42" width="18" height="6"/><rect x="25" y="48" width="30" height="6"/></g><g fill="#ffd84a"><rect x="25" y="36" width="6" height="6"/><rect x="49" y="36" width="6" height="6"/></g><g fill="#ff4fa3"><rect x="37" y="42" width="6" height="6"/></g>
+                      <path d="M7 69h69l-6 27H13Z" fill="#21192e" stroke="#ffd84a" stroke-width="1.5" />
+                      <path d="M27 69v12" stroke="#3ee6ff" stroke-width="3"/><circle cx="27" cy="67" r="5" fill="#ff4fa3"/><circle cx="54" cy="80" r="5" fill="#ffd84a"/><circle cx="66" cy="78" r="4" fill="#3ee6ff"/>
+                    </g>
+                    <g transform="translate(108 54)">
+                      <path d="M10 0h76l9 38-8 137H7L0 38Z" fill="url(#arcade-store-cabinet)" stroke="#3ee6ff" stroke-width="2.5" />
+                      <rect x="13" y="15" width="68" height="61" rx="5" fill="#060a19" stroke="#ff4fa3" stroke-width="2" />
+                      <g fill="#ff4fa3"><rect x="27" y="21.5" width="16" height="8"/><rect x="51" y="21.5" width="16" height="8"/><rect x="19" y="29.5" width="8" height="8"/><rect x="35" y="29.5" width="40" height="8"/><rect x="19" y="37.5" width="56" height="8"/><rect x="27" y="45.5" width="40" height="8"/><rect x="35" y="53.5" width="24" height="8"/><rect x="43" y="61.5" width="8" height="8"/></g><g fill="#f5f0ff"><rect x="27" y="29.5" width="8" height="8"/></g>
+                      <path d="M8 85h80l-7 33H15Z" fill="#21192e" stroke="#ff4fa3" stroke-width="2" />
+                      <path d="M34 85v15" stroke="#ffd84a" stroke-width="4"/><circle cx="34" cy="82" r="6" fill="#3ee6ff"/><circle cx="60" cy="101" r="6" fill="#ff4fa3"/><circle cx="75" cy="98" r="5" fill="#ffd84a"/>
+                    </g>
+                    <g transform="translate(216 88)">
+                      <path d="M7 0h58l8 27-6 105H5L0 27Z" fill="url(#arcade-store-cabinet)" stroke="#b65cff" stroke-width="2" />
+                      <rect x="10" y="11" width="52" height="43" rx="4" fill="#060a19" stroke="#3ee6ff" stroke-width="2" />
+                      <g fill="#b8901e"><rect x="31" y="12.5" width="10" height="5"/></g><g fill="#f5f0ff"><rect x="31" y="17.5" width="10" height="5"/><rect x="31" y="37.5" width="5" height="5"/></g><g fill="#3ee6ff"><rect x="31" y="22.5" width="10" height="5"/><rect x="26" y="27.5" width="5" height="5"/><rect x="41" y="27.5" width="5" height="5"/><rect x="21" y="32.5" width="5" height="5"/><rect x="46" y="32.5" width="5" height="5"/><rect x="21" y="37.5" width="5" height="5"/><rect x="46" y="37.5" width="5" height="5"/><rect x="21" y="42.5" width="5" height="5"/><rect x="46" y="42.5" width="5" height="5"/><rect x="26" y="47.5" width="20" height="5"/></g><g fill="#ff4fa3"><rect x="26" y="32.5" width="20" height="5"/><rect x="26" y="37.5" width="5" height="5"/><rect x="36" y="37.5" width="10" height="5"/><rect x="26" y="42.5" width="20" height="5"/></g>
+                      <path d="M6 62h62l-5 25H11Z" fill="#21192e" stroke="#ffd84a" stroke-width="1.5" />
+                      <path d="M26 62v11" stroke="#ff4fa3" stroke-width="3"/><circle cx="26" cy="60" r="4" fill="#ffd84a"/><circle cx="49" cy="74" r="4" fill="#3ee6ff"/>
+                    </g>
+                    <!-- 手前の景品の陳列ケース。シャッターが半分の時も見える下半分に、作れる板の小物を並べる -->
+                    <path d="M14 196h272l8 12H6Z" fill="#2b2147" stroke="#ff4fa3" stroke-width="1.5" />
+                    <rect x="10" y="208" width="280" height="62" fill="url(#arcade-store-glass)" stroke="#9d7bff" stroke-width="1.5" />
+                    <path d="M10 262h280" stroke="#ffd84a" stroke-opacity=".5" stroke-width="1" />
+                    <ellipse cx="73.5" cy="262" rx="30.5" ry="4" fill="#ff4fa3" opacity=".28"/><g class="arcade-store-plate" transform="translate(46 213)" style="color:#ff4fa3"><use href="#pmx-heart" x="7.2" y="5.4" fill="#5c1240"/><use href="#pmx-heart" x="6" y="4.5" fill="#5c1240"/><use href="#pmx-heart" x="4.8" y="3.6" fill="#5c1240"/><use href="#pmx-heart" x="3.6" y="2.7" fill="#8f2160"/><use href="#pmx-heart" x="2.4" y="1.8" fill="#8f2160"/><use href="#pmx-heart" x="1.2" y="0.9" fill="#8f2160"/><use href="#pmx-heart" fill="#ff4fa3"/><path d="M14 0v7M7 7h7M14 7h7M35 0v7M28 7h7M35 7h7M7 7v7M0 14h7M14 7v7M7 14h7M21 7v7M14 14h7M28 7v7M21 14h7M35 7v7M28 14h7M42 7v7M35 14h7M42 14h7M7 14v7M14 14v7M7 21h7M21 14v7M14 21h7M28 14v7M21 21h7M35 14v7M28 21h7M42 14v7M35 21h7M14 21v7M21 21v7M14 28h7M28 21v7M21 28h7M35 21v7M28 28h7M21 28v7M28 28v7M21 35h7" stroke="#8f2160" stroke-width=".8"/><rect x="7" y="7" width="7" height="7" fill="#fff5fb"/></g><ellipse cx="153" cy="262" rx="33" ry="4" fill="#ffd84a" opacity=".28"/><g class="arcade-store-plate" transform="translate(123 208)" style="color:#ffd84a"><use href="#pmx-star" x="7.2" y="5.4" fill="#6e5410"/><use href="#pmx-star" x="6" y="4.5" fill="#6e5410"/><use href="#pmx-star" x="4.8" y="3.6" fill="#6e5410"/><use href="#pmx-star" x="3.6" y="2.7" fill="#a8801a"/><use href="#pmx-star" x="2.4" y="1.8" fill="#a8801a"/><use href="#pmx-star" x="1.2" y="0.9" fill="#a8801a"/><use href="#pmx-star" fill="#ffd84a"/><path d="M24 6h6M24 12h6M24 12v6M18 18h6M30 12v6M24 18h6M30 18h6M6 18v6M12 18v6M6 24h6M18 18v6M12 24h6M24 18v6M18 24h6M30 18v6M24 24h6M36 18v6M30 24h6M42 18v6M36 24h6M48 18v6M42 24h6M12 24v6M18 24v6M12 30h6M24 24v6M18 30h6M30 24v6M24 30h6M36 24v6M30 30h6M42 24v6M36 30h6M18 30v6M12 36h6M24 30v6M18 36h6M30 30v6M36 30v6M30 36h6M36 36h6M18 36v6M12 42h6M36 36v6M36 42h6M12 42v6M42 42v6" stroke="#a8801a" stroke-width=".8"/></g><ellipse cx="233.5" cy="262" rx="30.5" ry="4" fill="#3ee6ff" opacity=".28"/><g class="arcade-store-plate" transform="translate(206 213)" style="color:#3ee6ff"><use href="#pmx-gem" x="7.2" y="5.4" fill="#0f4d5c"/><use href="#pmx-gem" x="6" y="4.5" fill="#0f4d5c"/><use href="#pmx-gem" x="4.8" y="3.6" fill="#0f4d5c"/><use href="#pmx-gem" x="3.6" y="2.7" fill="#1d7d93"/><use href="#pmx-gem" x="2.4" y="1.8" fill="#1d7d93"/><use href="#pmx-gem" x="1.2" y="0.9" fill="#1d7d93"/><use href="#pmx-gem" fill="#3ee6ff"/><path d="M14 0v7M7 7h7M21 0v7M14 7h7M28 0v7M21 7h7M35 0v7M28 7h7M35 7h7M7 7v7M0 14h7M14 7v7M7 14h7M21 7v7M14 14h7M28 7v7M21 14h7M35 7v7M28 14h7M42 7v7M35 14h7M42 14h7M7 14v7M14 14v7M7 21h7M21 14v7M14 21h7M28 14v7M21 21h7M35 14v7M28 21h7M42 14v7M35 21h7M14 21v7M21 21v7M14 28h7M28 21v7M21 28h7M35 21v7M28 28h7M21 28v7M28 28v7M21 35h7" stroke="#1d7d93" stroke-width=".8"/><rect x="7" y="7" width="7" height="7" fill="#fff5fb"/></g>
+                    <path d="M24 212 60 266M38 212l14 20" stroke="#fff" stroke-opacity=".1" stroke-width="3" />
+                    <rect x="6" y="270" width="288" height="30" fill="#140f26" />
+                    <path class="arcade-store-neon" d="M14 278h272" stroke="#3ee6ff" stroke-width="3" stroke-linecap="round" filter="url(#arcade-store-glow)" />
+                    <g fill="#ffd84a" opacity=".55"><circle cx="40" cy="290" r="2"/><circle cx="80" cy="290" r="2"/><circle cx="120" cy="290" r="2"/><circle cx="160" cy="290" r="2"/><circle cx="200" cy="290" r="2"/><circle cx="240" cy="290" r="2"/></g>
+                  </svg>
+                <div class="shutter" aria-hidden="true">
+                  <span class="shutter__surface"></span>
+                  <span class="badge">近日公開</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="storefront__name">ピクセルメーカー</h3>
+            <p class="subtitle">ドット絵から、手に持てる板の小物を作る Unity のツール</p>
+            <p class="storefront__tags"><span class="tag tag--status tag--soon">近日公開</span><span class="tag">アバター用</span></p>
+          </div>
         </article>
       </div>
     </section>

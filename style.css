@@ -628,6 +628,7 @@ h3 { margin: 0; }
 /* 店ごとの木の枠 */
 .storefront { --frame: var(--mokuzai); }
 .storefront--closed { --frame: var(--shu); }
+.storefront--arcade { --frame: #8d3e9f; }
 
 /* 店の 1 つの単位（正方形の店先＋小見出し） */
 .storefront {
@@ -804,6 +805,7 @@ li + li { margin-top: 8px; }
 .note { font-size: .875rem; }
 
 .storefront--closed .subtitle { color: #e9b8a8; }
+.storefront--arcade .subtitle { color: #eadcf3; }
 
 /* 狐の窓の飾り */
 .storefront__interior--fox { background: #151e34; }
@@ -811,6 +813,16 @@ li + li { margin-top: 8px; }
 .fox-window { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(circle at 50% 69%, rgba(240, 212, 154, .12), transparent 30%); }
 .fox-window__diamond { position: absolute; top: 49%; left: 50%; width: min(34%, 155px); aspect-ratio: 1; border: 1px solid var(--akari); transform: translate(-50%, -10%) rotate(45deg); }
 .fox-window span { position: absolute; top: 58%; left: 50%; color: var(--shironeri); font-weight: 700; letter-spacing: .18em; transform: translateX(-50%); writing-mode: vertical-rl; }
+
+/* ピクセルメーカーの店内: ネオンの下に並ぶアーケード筐体 */
+.storefront__interior--arcade { background: #0d0b1a; }
+.arcade-store-art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.arcade-store-neon { animation: arcade-store-glow 5.6s ease-in-out infinite alternate; }
+
+@keyframes arcade-store-glow {
+  from { opacity: .82; }
+  to { opacity: 1; }
+}
 
 .contact {
   position: relative;
@@ -1300,7 +1312,7 @@ footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
   .alley-bicycle,
   .alley-props--notice { display: none; }
 
-  .vent-fan { right: 0; width: 44px; }
+  .vent-fan { right: 2px; width: 38px; }
   .umbrella-stand { right: 2px; width: 32px; }
 }
 
@@ -1440,15 +1452,45 @@ footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
     justify-content: center;
     gap: 40px;
   }
+  .product-list > :nth-child(3) { grid-column: 1 / -1; width: 300px; }
+}
+
+/* 2 列が始まる最狭幅では、左端の蔦を店の枠より外へ収める */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pipe-ivy { width: 40px; }
 }
 
 @media (min-width: 1024px) {
   .product-list {
-    grid-template-columns: repeat(2, minmax(0, 300px));
+    grid-template-columns: repeat(3, minmax(0, 300px));
     justify-content: center;
     align-items: stretch;
     gap: 28px;
   }
+  .product-list > :nth-child(3) { grid-column: auto; width: 100%; }
+}
+
+/* 3 列が画面いっぱいになる幅では、並びの両脇に 52px の空きを取り、
+   2 列の時と同じく壁の端に寄る小さな物（雨どい・蔦・換気扇・傘立て）だけ残す。大型の飾りは休ませる */
+@media (min-width: 1024px) and (max-width: 1187px) {
+  .product-list { padding-inline: 52px; }
+
+  .lit-window,
+  .lit-window__spill,
+  .gas-meter,
+  .back-door { display: none; }
+
+  .pipe-ivy { width: 40px; }
+  .vent-fan { right: 2px; width: 38px; }
+  .umbrella-stand { right: 2px; width: 32px; }
+}
+
+/* 3 列の外側に余白が戻った後も、窓と勝手口はその余白内に収める */
+@media (min-width: 1188px) {
+  .lit-window { left: 12px; width: 72px; }
+  .lit-window__spill { left: 0; width: 92px; }
+  .back-door { right: 10px; width: clamp(76px, 6.8vw, 92px); }
+  .umbrella-stand { right: calc(clamp(76px, 6.8vw, 92px) + 18px); width: 32px; }
 }
 
 @media (max-width: 479px) {
@@ -1487,6 +1529,8 @@ footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
   .inari__candle,
   .lantern-string__one { animation: none; }
 
+  .arcade-store-neon { animation: none; }
+
   .alley-puddle__ripple { display: none; }
 
   /* 矢印は下へ動かさない */
@@ -1506,3 +1550,18 @@ footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
 
   .storefront.is-open .shutter { transform: translateY(-100%); }
 }
+
+/* ピクセルメーカーはまだ出していないので、店の中は見せず、シャッターはいつも一番下まで下ろしたまま（ホバー・フォーカス・スマホの is-open でも上げない） */
+.storefront.storefront--arcade .shutter,
+.storefront.storefront--arcade:hover .shutter,
+.storefront.storefront--arcade:focus-within .shutter,
+.storefront.storefront--arcade.is-open .shutter { transform: none; }
+
+/* 下ろしきったシャッターの札は真ん中に貼る */
+.storefront--arcade .shutter .badge { top: 50%; }
+
+/* ピクセルメーカーの店はリンクにしていないので、マウスを乗せても拡大・光・名前の色変えをしない */
+.storefront.storefront--arcade:hover .storefront__front { transform: none; }
+.storefront.storefront--arcade:hover .storefront__interior::after { opacity: 0; }
+.storefront.storefront--arcade .storefront__link:hover .storefront__name { color: var(--shironeri); }
+.storefront.storefront--arcade { cursor: default; }
