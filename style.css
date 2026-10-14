@@ -1565,3 +1565,6 @@ footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
 .storefront.storefront--arcade:hover .storefront__interior::after { opacity: 0; }
 .storefront.storefront--arcade .storefront__link:hover .storefront__name { color: var(--shironeri); }
 .storefront.storefront--arcade { cursor: default; }
+
+/* 店を閉じている間は、見えない中のネオンを動かさない（開店する時にこの規則も外す） */
+.storefront--arcade .arcade-store-neon { animation: none; }
