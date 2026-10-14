@@ -255,6 +255,9 @@
 .fox-howto ol { display: grid; margin: 0; padding: 0; list-style: none; counter-reset: fox-steps; gap: 20px; }
 .fox-howto li { position: relative; min-width: 0; margin: 0; padding: 75px 23px 28px; border: 1px solid rgba(168, 224, 255, .21); border-top: 4px solid var(--shu); background: rgba(16, 25, 57, .78); box-shadow: 0 12px 25px rgba(0, 0, 0, .22); counter-increment: fox-steps; }
 .fox-howto li::before { position: absolute; top: 8px; left: 20px; color: var(--tomoshibi); content: counter(fox-steps); font-family: "Dela Gothic One", sans-serif; font-size: 2.35rem; line-height: 1.2; text-shadow: 0 0 12px rgba(240, 212, 154, .2); }
+.fox-video { margin: 32px 0 0; }
+.fox-video video { display: block; width: 100%; height: auto; border: 1px solid rgba(168, 224, 255, .21); border-top: 4px solid var(--shu); background: #050814; box-shadow: 0 12px 25px rgba(0, 0, 0, .22); }
+.fox-video figcaption { margin-top: 10px; color: var(--shironeri); font-size: .95rem; }
 
 .fox-notes { display: grid; gap: 0 32px; }
 .fox-list { min-width: 0; }
