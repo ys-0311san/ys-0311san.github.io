@@ -1496,11 +1496,13 @@ footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
   .wall-arrow:focus-visible .wall-arrow__mark { transform: none; }
 }
 
-/* 触る画面では拡大せず、シャッターは半分のまま */
+/* 触る画面では拡大しない。シャッターは半分のままで、店先が画面に入ると shutter.js が is-open を付けて上げる */
 @media (hover: none) {
   .storefront:hover .storefront__front,
   .storefront:focus-within .storefront__front { transform: none; }
 
   .storefront:hover .shutter,
   .storefront:focus-within .shutter { transform: translateY(-50%); }
+
+  .storefront.is-open .shutter { transform: translateY(-100%); }
 }
