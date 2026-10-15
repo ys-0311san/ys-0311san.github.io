@@ -343,3 +343,7 @@
   .pond-float,
   .pond-fireflies circle { animation: none; }
 }
+
+/* 狐の泡は準備中（出す時にこの札と文を外す） */
+.soon-badge { display: inline-block; margin-left: .5em; font-family: "BIZ UDPGothic", sans-serif; padding: 2px 10px; border: 1px solid var(--tomoshibi); border-radius: 2px; color: #fff1c9; background: rgba(12, 20, 48, .82); font-size: .875rem; font-weight: 700; vertical-align: middle; }
+.world-bubble__soon { color: var(--tomoshibi); font-weight: 700; }
