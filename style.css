@@ -593,7 +593,7 @@ h3 { margin: 0; }
     linear-gradient(175deg, #3e2e20, #281e16);
   box-shadow: 3px 5px 8px rgba(0, 0, 0, .48);
   font-family: "Dela Gothic One", sans-serif;
-  font-size: clamp(.78rem, 2.5vw, 1rem);
+  font-size: clamp(.84rem, 2.5vw, 1rem);
   line-height: 1.55;
   transform: rotate(-2deg);
 }
@@ -1568,3 +1568,9 @@ footer { position: relative; padding-top: 260px; padding-bottom: 350px; }
 
 /* 店を閉じている間は、見えない中のネオンを動かさない（開店する時にこの規則も外す） */
 .storefront--arcade .arcade-store-neon { animation: none; }
+
+/* 上の案内のリンクは、文字の上下も押せるようにする */
+.site-nav__name, .site-nav__links a { display: inline-block; padding-block: 12px; }
+
+/* 道しるべは語の途中で折り返さない（折り返すのは空白と「／」の後だけ） */
+.signpost { word-break: keep-all; }

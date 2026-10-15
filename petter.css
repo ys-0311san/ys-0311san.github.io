@@ -375,3 +375,6 @@
   .room__curtain,
   .room__glow { animation: none; }
 }
+
+/* 読み終えた所の BOOTH ボタン */
+.petter-end-cta { max-width: none; margin: 64px 0 0; text-align: center; }
