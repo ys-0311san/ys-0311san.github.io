@@ -350,3 +350,10 @@
 
 /* お知らせの文の中のリンク */
 .fox-notice a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* 発売後の BOOTH へのボタン（灯り色で塗る） */
+.fox-cta-list { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; }
+.fox-cta-list li + li { margin: 0; }
+.fox-cta-list--end { justify-content: center; margin-top: 64px; }
+.fox-cta { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; padding: 12px 24px; border: 2px solid var(--tomoshibi); border-radius: 6px; color: #1b1408; background: var(--tomoshibi); font-weight: 700; text-decoration: none; }
+.fox-cta:hover { color: #1b1408; background: #fff1c9; }
